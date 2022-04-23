@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyApp_home</string>
+    <string name="app_name">MyApp</string>
     <string name="todo">TODO</string>
     <string name="welcome">Welcome</string>
     <string name="pass">Pass</string>
