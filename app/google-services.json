@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "139675972216",
+    "project_id": "myapp-febe8",
+    "storage_bucket": "myapp-febe8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139675972216:android:871048d67cb0219cc6f38d",
+        "android_client_info": {
+          "package_name": "com.ntmk.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139675972216-99997qr887re6qj15bu2mmkio8iaqmjd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ntmk.myapp",
+            "certificate_hash": "a5de1655fda8baeb11e1c4471ea8745bfdf8af01"
+          }
+        },
+        {
+          "client_id": "139675972216-g11a1q36n7p94hbliornqg46862999s7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0Pz_IjM03i9zCLZ9qexj6QOQyd-fyAzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139675972216-g11a1q36n7p94hbliornqg46862999s7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
