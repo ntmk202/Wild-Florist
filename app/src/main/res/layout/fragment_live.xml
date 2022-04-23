@@ -51,24 +51,24 @@
                 android:layout_marginTop="8dp"
                 android:contentDescription="@string/todo"
                 android:src="@drawable/add_shape"
-                app:layout_constraintEnd_toStartOf="@+id/imgCart"
+                app:layout_constraintEnd_toStartOf="@+id/imgNotification"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <ImageView
-                android:id="@+id/imgCart"
+                android:id="@+id/imgNotification"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="8dp"
                 android:contentDescription="@string/todo"
-                android:src="@drawable/cart_unselect"
-                app:layout_constraintEnd_toStartOf="@+id/imgChat"
+                android:src="@drawable/ic_baseline_notifications_none_24"
+                app:layout_constraintEnd_toStartOf="@+id/imgRing"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <ImageView
-                android:id="@+id/imgChat"
+                android:id="@+id/imgRing"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="8dp"
