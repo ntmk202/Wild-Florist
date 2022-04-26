@@ -50,7 +50,7 @@
             android:background="@drawable/shape_link"
             android:contentDescription="@string/todo"
             android:padding="10dp"
-            android:src="@drawable/ic_baseline_add_shopping_cart_24" />
+            android:src="@drawable/cart" />
 
 
     </RelativeLayout>

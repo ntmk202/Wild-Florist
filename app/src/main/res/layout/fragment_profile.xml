@@ -77,7 +77,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="8dp"
                 android:contentDescription="@string/todo"
-                android:src="@drawable/cart_unselect"
+                android:src="@drawable/cart"
                 app:layout_constraintEnd_toStartOf="@+id/imgChat"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
