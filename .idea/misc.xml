@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable-v24/shape_note.xml" value="0.2545" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/button.xml" value="0.2145" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/dots.xml" value="0.1685" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.177" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.1215" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/ic_launcher_cart.xml" value="0.1" />
@@ -13,7 +14,9 @@
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/ic_launcher_notification.xml" value="0.1" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/indicator_selector.xml" value="0.2545" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/selected.xml" value="0.2545" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/shape_num.xml" value="0.1605" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/shape_search.xml" value="0.1" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/unselected.xml" value="0.1605" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_advertisement.xml" value="0.20516304347826086" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_forgot_pass.xml" value="0.25" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_home.xml" value="0.2" />
@@ -31,8 +34,9 @@
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/verify_email_fragment.xml" value="0.19972826086956522" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/z_categories_item_view.xml" value="0.1" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/z_list_acc_view.xml" value="0.25" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/z_list_garden_view.xml" value="0.2" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/z_list_item_home_view.xml" value="0.2" />
-        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/z_viewer_garden.xml" value="0.19972826086956522" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/z_viewer_garden.xml" value="0.2" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/z_viewer_product.xml" value="0.2" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/MyApp/app/src/main/res/drawable-v24/unselected.xml" value="0.1" />
