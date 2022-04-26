@@ -65,7 +65,6 @@ class HomeFragment : Fragment() {
         Cgr_data.add(ListCgrData("FRESH", R.drawable.flower_item1))
         Cgr_data.add(ListCgrData("DRIED", R.drawable.flower_dried))
         Cgr_data.add(ListCgrData("ORNAMENT", R.drawable.flower_pot))
-        Cgr_data.add(ListCgrData("COINS", R.drawable.coin))
         Cgr_data.add(ListCgrData("FESTIVAL", R.drawable.flowers_festival))
         Cgr_data.add(ListCgrData("SEEDS", R.drawable.seed))
         Cgr_data.add(ListCgrData("VASES", R.drawable.vase))
