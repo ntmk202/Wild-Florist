@@ -21,7 +21,7 @@
             android:src="@drawable/voucher" />
 
         <TextView
-            android:id="@+id/txtView_list"
+            android:id="@+id/tvList_acc"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_toEndOf="@+id/iconTag"
@@ -34,9 +34,8 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="200dp"
+            android:padding="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/txtView_list"
             android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
 
     </RelativeLayout>
