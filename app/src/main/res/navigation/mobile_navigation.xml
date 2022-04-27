@@ -16,11 +16,6 @@
         tools:layout="@layout/fragment_garden" />
 
     <fragment
-        android:id="@+id/navigation_live"
-        android:name="com.ntmk.myapp.ui.live.LiveFragment"
-        tools:layout="@layout/fragment_live" />
-
-    <fragment
         android:id="@+id/navigation_notification"
         android:name="com.ntmk.myapp.ui.notifications.NotificationsFragment"
         tools:layout="@layout/fragment_notifications" />

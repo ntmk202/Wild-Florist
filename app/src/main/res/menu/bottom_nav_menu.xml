@@ -12,11 +12,6 @@
         android:title="@string/title_garden" />
 
     <item
-        android:id="@+id/navigation_live"
-        android:icon="@drawable/ic_launcher_live"
-        android:title="@string/title_live" />
-
-    <item
         android:id="@+id/navigation_notification"
         android:icon="@drawable/ic_launcher_notification"
         android:title="@string/title_notification" />
