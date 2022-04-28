@@ -10,7 +10,7 @@ import androidx.viewpager.widget.PagerAdapter
 import com.ntmk.myapp.R
 import com.ntmk.myapp.model.OnBoardingData
 
-class ViewPaperAdapter(private var context : Context, private var onBoardingDataList: List<OnBoardingData>) : PagerAdapter() {
+class OnBoardingAdapter(private var context : Context, private var onBoardingDataList: List<OnBoardingData>) : PagerAdapter() {
     override fun getCount(): Int {
         return onBoardingDataList.size
     }

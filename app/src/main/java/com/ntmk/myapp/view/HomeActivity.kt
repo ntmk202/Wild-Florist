@@ -1,12 +1,12 @@
-package com.ntmk.myapp
+package com.ntmk.myapp.view
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {

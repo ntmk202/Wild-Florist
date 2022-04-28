@@ -1,4 +1,4 @@
-package com.ntmk.myapp.ui.profile
+package com.ntmk.myapp.view.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater

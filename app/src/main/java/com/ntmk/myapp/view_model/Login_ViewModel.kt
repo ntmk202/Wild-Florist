@@ -14,8 +14,8 @@ import com.ntmk.myapp.model.User
 class Login_ViewModel : BaseObservable(){
     private var email: String = ""
     private var pass: String = ""
-    public var messageLoginEmail :ObservableField<String> = ObservableField<String>()
-    public var messageLoginPass :ObservableField<String> = ObservableField<String>()
+    var messageLoginEmail :ObservableField<String> = ObservableField<String>()
+    var messageLoginPass :ObservableField<String> = ObservableField<String>()
 
     @Bindable
     fun getEmail() : String{

@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.FragmentHomeBinding
-import com.ntmk.myapp.view.ui.home.adapter.CategoriesAdapter
-import com.ntmk.myapp.view.ui.home.adapter.ListCgrData
-import com.ntmk.myapp.view.ui.home.adapter.ListHomeAdapter
-import com.ntmk.myapp.view.ui.home.adapter.ListHomeData
+import com.ntmk.myapp.adapters.CategoriesAdapter
+import com.ntmk.myapp.model.ListCgrData
+import com.ntmk.myapp.adapters.ListHomeAdapter
+import com.ntmk.myapp.model.ListHomeData
 
 class HomeFragment : Fragment() {
 

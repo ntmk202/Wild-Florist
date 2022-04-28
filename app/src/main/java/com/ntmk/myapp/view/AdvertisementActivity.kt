@@ -11,13 +11,13 @@ import android.widget.Button
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.ntmk.myapp.R
-import com.ntmk.myapp.adapters.ViewPaperAdapter
+import com.ntmk.myapp.adapters.OnBoardingAdapter
 import com.ntmk.myapp.model.OnBoardingData
 
 class AdvertisementActivity : AppCompatActivity() {
 
 //    add init
-    private var viewPaperAdapter: ViewPaperAdapter? = null
+    private var onBoardingAdapter: OnBoardingAdapter? = null
     private var tabLayout: TabLayout? = null
     private var onBoardingViewPaper: ViewPager? = null
     var btn_next: Button? = null
@@ -102,8 +102,8 @@ class AdvertisementActivity : AppCompatActivity() {
 
     private fun setViewPaperAdapter(onBoardingData: List<OnBoardingData>){
         onBoardingViewPaper = findViewById(R.id.SlideVIewPaper)
-        viewPaperAdapter = ViewPaperAdapter(this, onBoardingData)
-        onBoardingViewPaper!!.adapter = viewPaperAdapter
+        onBoardingAdapter = OnBoardingAdapter(this, onBoardingData)
+        onBoardingViewPaper!!.adapter = onBoardingAdapter
         tabLayout?.setupWithViewPager(onBoardingViewPaper)
     }
 
