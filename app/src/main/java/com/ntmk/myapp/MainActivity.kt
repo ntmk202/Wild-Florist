@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Toast.makeText(applicationContext,"Its a toast!", Toast.LENGTH_SHORT).show()
 
         Handler().postDelayed({k@
             startActivity(Intent(this@MainActivity, AdvertisementActivity::class.java))

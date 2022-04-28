@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.google.firebase.database.*
 import com.ntmk.myapp.ForgotPassActivity
@@ -22,19 +23,18 @@ class LoginActivity : AppCompatActivity() {
     private var btn_login : Button? = null
     private var txt_email : TextView? = null
     private var txt_pass : TextView? = null
-    private lateinit var list_user : ArrayList<User>
-    private lateinit var database : DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_login)
         init()
+        link_signUp?.setText("222222")
 
         val binding:ActivityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login )
         var loginViewModel : Login_ViewModel = Login_ViewModel()
         binding.loginn = loginViewModel
 
-        
 
 
 
@@ -48,10 +48,7 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-        link_signUp?.setOnClickListener{
-            val i= Intent(this, RegistrationActivity::class.java)
-            startActivity(i)
-        }
+
         link_forgotPass?.setOnClickListener{
             val i= Intent(this, ForgotPassActivity::class.java)
             startActivity(i)
@@ -68,19 +65,7 @@ class LoginActivity : AppCompatActivity() {
         btn_login = findViewById(R.id.btnLogin)
         txt_email = findViewById(R.id.txtEmail)
         txt_pass = findViewById(R.id.txtPass)
-        list_user = ArrayList<User>()
     }
-//    private fun login() {
-//        var check : Boolean = false
-//        for (data in list_user){
-//            if(txt_email?.text.toString().equals(data.getEmail()) && txt_pass?.text.toString().equals(data.getPass())){
-//                Toast.makeText(this,"Login success", Toast.LENGTH_LONG).show()
-//                check = true
-//            }
-//        }
-//        if (!check){
-//            Toast.makeText(this,"Login failed", Toast.LENGTH_LONG).show()
-//        }
-//    }
+
 }
 
