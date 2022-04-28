@@ -2,6 +2,7 @@ package com.ntmk.myapp.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.Toast
@@ -22,26 +23,23 @@ import com.ntmk.myapp.view_model.Login_ViewModel
 import com.ntmk.myapp.view_model.Util.toast
 
 
-open class LoginActivity : AppCompatActivity() , Listener{
+open class LoginActivity : AppCompatActivity(), Listener {
 
-    private lateinit var list_user : ArrayList<User>
     private lateinit var binding: ActivityLoginBinding
-    private var load : RelativeLayout? = null
+    private var load: RelativeLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
-
-
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_login )
-        val viewModel: Login_ViewModel = ViewModelProvider(this).get(Login_ViewModel ::class.java)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        val viewModel: Login_ViewModel = ViewModelProvider(this).get(Login_ViewModel::class.java)
         binding.loginn = viewModel
         viewModel.listener = this
 
 
-        binding.btnLogin.setOnClickListener{
-            var checkLogin = viewModel.onClickLogin()
-            if(checkLogin){
+        binding.btnLogin.setOnClickListener {
+            var checkIsSuccessLogin = viewModel.onClickLogin()
+            if (checkIsSuccessLogin) {
                 val v = View.inflate(this, R.layout.fragment_loading, null)
 
                 val builder = AlertDialog.Builder(this)
@@ -52,18 +50,18 @@ open class LoginActivity : AppCompatActivity() , Listener{
                 dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
             }
         }
-        binding.txtLinkSignup.setOnClickListener{
-            val i= Intent(this, RegistrationActivity::class.java)
+        binding.txtLinkSignup.setOnClickListener {
+            val i = Intent(this, RegistrationActivity::class.java)
             startActivity(i)
         }
-        binding.txtForgotPass.setOnClickListener{
-            val i= Intent(this, ForgotPassActivity::class.java)
+        binding.txtForgotPass.setOnClickListener {
+            val i = Intent(this, ForgotPassActivity::class.java)
             startActivity(i)
         }
     }
-    fun init(){
+
+    fun init() {
         load = findViewById(R.id.loading)
-        list_user = ArrayList<User>()
     }
 
     override fun onSuccess() {

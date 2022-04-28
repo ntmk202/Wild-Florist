@@ -5,6 +5,8 @@ import android.util.Patterns
 import androidx.databinding.BaseObservable
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
+import com.ntmk.myapp.controller.UserFirebase
+import com.ntmk.myapp.model.User
 
 class RegistrationViewModel : ViewModel() {
     var name: String = ""
@@ -15,10 +17,15 @@ class RegistrationViewModel : ViewModel() {
     var messageLoginEmail: ObservableField<String> = ObservableField<String>()
     var messageLoginPass: ObservableField<String> = ObservableField<String>()
     var listener: Listener? = null
+    private var list_user: ArrayList<User> = ArrayList()
+    var userFirebase: UserFirebase = UserFirebase()
 
+    init {
+        userFirebase.getData()
+    }
 
-    fun onClickLogin(): Boolean {
-        var check = false
+    fun onClickSignup(): Boolean {
+        var checkIsSuccessSignup = false
         var checkName: String = checkName(name)
         var checkEmail: String = checkEmail(email)
         var checkPass: String = checkPass(pass)
@@ -31,23 +38,26 @@ class RegistrationViewModel : ViewModel() {
         } else if (!checkBox) {
             messageLoginPass.set("You are a robot ?")
         } else {
-            var checkLogin: Boolean = false
-//            list_user = userFirebase.getListUser()
-//            println("SIZE : "+list_user.size)
-//            for (user in list_user){
-//                println(user.toString())
-//                if(user.email.equals(email) && user.pass.equals(pass)){
-//                    checkLogin= true
-//                }
-//            }
-            if (!checkLogin) {
-                listener?.onSuccess()
-                check = true
+            list_user = userFirebase.getListUser()
+            var list_name: ArrayList<String> = ArrayList()
+            var list_email: ArrayList<String> = ArrayList()
+            for (user in list_user) {
+                list_name.add(user.name)
+                list_email.add(user.email)
+            }
+            if (name in list_name) {
+                listener?.onFailure("Name already exists")
+            } else if (email in list_email) {
+                listener?.onFailure("Email already exists")
             } else {
-                listener?.onFailure("Email or password is incorrect")
+                var id: Int = list_user.get(list_user.size - 1).id + 1
+                var user = User(id, name, email, pass)
+                userFirebase.addUser(user)
+                listener?.onSuccess()
+                checkIsSuccessSignup = true
             }
         }
-        return check
+        return checkIsSuccessSignup
     }
 
     fun onCheckedChanged() {

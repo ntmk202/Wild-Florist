@@ -23,31 +23,31 @@ class RegistrationActivity : AppCompatActivity(), Listener {
     private lateinit var binding: ActivityRegistrationBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_registration )
-        val viewModel: RegistrationViewModel = ViewModelProvider(this).get(RegistrationViewModel ::class.java)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_registration)
+        val viewModel: RegistrationViewModel =
+            ViewModelProvider(this).get(RegistrationViewModel::class.java)
         binding.registration = viewModel
         viewModel.listener = this
 
-        binding.btnSignup.setOnClickListener{
-            var checkLogin = viewModel.onClickLogin()
-            if(checkLogin){
-                Handler().postDelayed({k@
-                startActivity(Intent(this, LoginActivity::class.java))
+        binding.btnSignup.setOnClickListener {
+            var checkIsSuccessSignup = viewModel.onClickSignup()
+            if (checkIsSuccessSignup) {
+                Handler().postDelayed({
+                    k@
+                    startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }, 1000)
             }
         }
 
-        binding.txtLinkLogin.setOnClickListener{
-            val i= Intent(applicationContext, LoginActivity::class.java)
+        binding.txtLinkLogin.setOnClickListener {
+            val i = Intent(applicationContext, LoginActivity::class.java)
             startActivity(i)
         }
-
-
     }
 
     override fun onSuccess() {
-        toast("Login Success")
+        toast("SignUp Success")
     }
 
     override fun onFailure(mess: String) {

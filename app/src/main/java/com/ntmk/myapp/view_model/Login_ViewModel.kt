@@ -18,33 +18,36 @@ class Login_ViewModel : ViewModel() {
     var messageLoginEmail: ObservableField<String> = ObservableField<String>()
     var messageLoginPass: ObservableField<String> = ObservableField<String>()
     var listener: Listener? = null
+    private var list_user: ArrayList<User> = ArrayList()
+    var userFirebase: UserFirebase = UserFirebase()
 
+    init {
+        userFirebase.getData()
+    }
 
     fun onClickLogin(): Boolean {
-        var check = false
+        var checkIsSuccessLogin = false
         var checkEmail: String = checkEmail(email)
         var checkPass: String = checkPass(pass)
         if (!checkEmail.equals("") || !checkPass.equals("")) {
             messageLoginEmail.set(checkEmail)
             messageLoginPass.set(checkPass)
         } else {
-            var checkLogin: Boolean = false
-//            list_user = userFirebase.getListUser()
-//            println("SIZE : "+list_user.size)
-//            for (user in list_user){
-//                println(user.toString())
-//                if(user.email.equals(email) && user.pass.equals(pass)){
-//                    checkLogin= true
-//                }
-//            }
-            if (!checkLogin) {
+            var checkInfoDatabase: Boolean = false
+            list_user = userFirebase.getListUser()
+            for (user in list_user) {
+                if (user.email.equals(email) && user.pass.equals(pass)) {
+                    checkInfoDatabase = true
+                }
+            }
+            if (checkInfoDatabase) {
                 listener?.onSuccess()
-                check = true
+                checkIsSuccessLogin = true
             } else {
                 listener?.onFailure("Email or password is incorrect")
             }
         }
-        return check
+        return checkIsSuccessLogin
     }
 
     fun onChangedTextEmail() {
