@@ -22,14 +22,14 @@ class ForgotPassActivity : AppCompatActivity() {
         btn_back = findViewById(R.id.btn_back)
         btn_confirm = findViewById(R.id.btn_confirm)
 
-        link_signUp?.setOnClickListener{
-            val i= Intent(this, RegistrationActivity::class.java)
-            startActivity(i)
-        }
-        btn_back?.setOnClickListener{
-            val i= Intent(this, LoginActivity::class.java)
-            startActivity(i)
-        }
+//        link_signUp?.setOnClickListener{
+//            val i= Intent(this, RegistrationActivity::class.java)
+//            startActivity(i)
+//        }
+//        btn_back?.setOnClickListener{
+//            val i= Intent(this, LoginActivity::class.java)
+//            startActivity(i)
+//        }
 
         btn_confirm?.setOnClickListener{
             val v = View.inflate(this, R.layout.verify_email_fragment, null)

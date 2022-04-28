@@ -7,7 +7,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.google.firebase.database.*
+import com.ntmk.myapp.ForgotPassActivity
 import com.ntmk.myapp.R
+import com.ntmk.myapp.databinding.ActivityLoginBinding
 import com.ntmk.myapp.databinding.ActivityMainBinding
 import com.ntmk.myapp.model.User
 import com.ntmk.myapp.view_model.Login_ViewModel
@@ -28,8 +30,9 @@ class LoginActivity : AppCompatActivity() {
 //        setContentView(R.layout.activity_login)
         init()
 
-        val binding:ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_login )
+        val binding:ActivityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login )
         var loginViewModel : Login_ViewModel = Login_ViewModel()
+
         
 
 
