@@ -1,10 +1,15 @@
-package com.ntmk.myapp.view.ui.profile
+package com.ntmk.myapp.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.ntmk.myapp.SettingActivity
 import com.ntmk.myapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -20,16 +25,17 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        val profileViewModel =
-//            ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textProfile
-//        profileViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+        val setting : ImageView = binding.linkSetting
+
+        setting.setOnClickListener {
+            val i = Intent(activity, SettingActivity::class.java)
+            startActivity(i)
+        }
+
         return root
     }
 

@@ -15,26 +15,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
         <activity
-            android:name=".view.ForgotPassActivity"
+            android:name=".ForgotPassActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HomeActivity"
+            android:name=".HomeActivity"
             android:exported="false"
             android:theme="@style/FullScreen" />
         <activity
-            android:name=".view.LoadingActivity"
+            android:name=".LoadingActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.AdvertisementActivity"
+            android:name=".AdvertisementActivity"
             android:exported="false" />
         <activity
-            android:name=".view.RegistrationActivity"
+            android:name=".RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
