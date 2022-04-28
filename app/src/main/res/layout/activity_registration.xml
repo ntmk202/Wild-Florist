@@ -6,7 +6,7 @@
     android:background="@drawable/bgr2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".view.LoginActivity">
 
     <LinearLayout
         android:id="@+id/lyt_start_regist"
@@ -68,7 +68,7 @@
             android:textColorHint="@color/color_hint">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_user_regist"
+                android:id="@+id/txtName_regis"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
@@ -84,32 +84,6 @@
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtPass_regist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/color_hint"
-            app:passwordToggleEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_pass_regist"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:autofillHints="password"
-                android:background="@drawable/style"
-                android:drawableStart="@drawable/ic_security"
-                android:drawablePadding="10dp"
-                android:hint="@string/pass"
-                android:inputType="textPassword"
-                android:padding="15dp"
-                android:textColor="@color/clr_title"
-                android:textColorHint="@color/color_hint"
-                android:textSize="20sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
@@ -118,7 +92,7 @@
             android:textColorHint="@color/color_hint">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_email_regist"
+                android:id="@+id/txtEmail_regis"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -133,6 +107,34 @@
                 android:textColorHint="@color/color_hint"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtPass_regist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/color_hint"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtPass_regis"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="password"
+                android:background="@drawable/style"
+                android:drawableStart="@drawable/ic_security"
+                android:drawablePadding="10dp"
+                android:hint="@string/pass"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:textColor="@color/clr_title"
+                android:textColorHint="@color/color_hint"
+                android:textSize="20sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <CheckBox
             android:id="@+id/txtRmAcc"

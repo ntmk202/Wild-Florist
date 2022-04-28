@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.ntmk.myapp.R
-import com.ntmk.myapp.models.OnBoardingData
+import com.ntmk.myapp.model.OnBoardingData
 
 class ViewPaperAdapter(private var context : Context, private var onBoardingDataList: List<OnBoardingData>) : PagerAdapter() {
     override fun getCount(): Int {

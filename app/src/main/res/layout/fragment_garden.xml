@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/bgr_pager"
     android:layout_height="match_parent"
-    tools:context=".ui.garden.GardenFragment">
+    tools:context=".view.ui.garden.GardenFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/actionBar"

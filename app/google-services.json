@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "139675972216",
-    "project_id": "myapp-febe8",
-    "storage_bucket": "myapp-febe8.appspot.com"
+    "project_number": "172693806312",
+    "firebase_url": "https://wild-florist-d20-default-rtdb.firebaseio.com",
+    "project_id": "wild-florist-d20",
+    "storage_bucket": "wild-florist-d20.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:139675972216:android:871048d67cb0219cc6f38d",
+        "mobilesdk_app_id": "1:172693806312:android:82cd04df6cdfaa62267d5d",
         "android_client_info": {
           "package_name": "com.ntmk.myapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "139675972216-99997qr887re6qj15bu2mmkio8iaqmjd.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.ntmk.myapp",
-            "certificate_hash": "a5de1655fda8baeb11e1c4471ea8745bfdf8af01"
-          }
-        },
-        {
-          "client_id": "139675972216-g11a1q36n7p94hbliornqg46862999s7.apps.googleusercontent.com",
+          "client_id": "172693806312-iaa2eqpmu12ng69b0soi1e36anngej6a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD0Pz_IjM03i9zCLZ9qexj6QOQyd-fyAzc"
+          "current_key": "AIzaSyCM7W8uaDelKSuMVV1Ih1E1U3JXaA3h57U"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "139675972216-g11a1q36n7p94hbliornqg46862999s7.apps.googleusercontent.com",
+              "client_id": "172693806312-iaa2eqpmu12ng69b0soi1e36anngej6a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

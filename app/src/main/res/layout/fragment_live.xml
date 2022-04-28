@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgr_pager"
-    tools:context=".ui.live.LiveFragment">
+    tools:context=".view.ui.live.LiveFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/actionBar"

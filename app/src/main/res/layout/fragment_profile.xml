@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgr_pager"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".view.ui.profile.ProfileFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/actionBar"
