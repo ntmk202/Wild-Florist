@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.ntmk.myapp.HomeActivity
 import com.ntmk.myapp.R
 
 class LoadingActivity : AppCompatActivity() {

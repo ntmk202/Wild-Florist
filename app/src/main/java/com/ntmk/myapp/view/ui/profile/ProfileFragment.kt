@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ntmk.myapp.R
-import com.ntmk.myapp.SettingActivity
+import com.ntmk.myapp.view.SettingActivity
 import com.ntmk.myapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {

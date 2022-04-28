@@ -1,12 +1,9 @@
-package com.ntmk.myapp
+package com.ntmk.myapp.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.FrameLayout
 import android.widget.ImageView
-import com.ntmk.myapp.ui.profile.ProfileFragment
-import androidx.fragment.app.Fragment as AppFragment
+import com.ntmk.myapp.R
 
 class SettingActivity : AppCompatActivity() {
 

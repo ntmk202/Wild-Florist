@@ -22,16 +22,16 @@
             android:exported="false"
             android:theme="@style/FullScreen" />
         <activity
-            android:name=".LoadingActivity"
+            android:name=".view.LoadingActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".AdvertisementActivity"
+            android:name=".view.AdvertisementActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrationActivity"
+            android:name=".view.RegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
