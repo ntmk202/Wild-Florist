@@ -1,4 +1,4 @@
-package com.ntmk.myapp.view.ui.home.adapter
+package com.ntmk.myapp.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ntmk.myapp.R
+import com.ntmk.myapp.model.ListHomeData
 
 class ListHomeAdapter (private var VH_List: List<ListHomeData>):
     RecyclerView.Adapter<ListHomeAdapter.ViewHolder>() {
@@ -18,7 +19,7 @@ class ListHomeAdapter (private var VH_List: List<ListHomeData>):
         val LVH_Image: ImageView = itemView.findViewById(R.id.imgView_list)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListHomeAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v:View = LayoutInflater.from(parent.context).inflate(R.layout.z_list_item_home_view,parent,false)
         return ViewHolder(v)
     }

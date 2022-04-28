@@ -1,4 +1,4 @@
-package com.ntmk.myapp.view.ui.garden.adapter
+package com.ntmk.myapp.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ntmk.myapp.R
+import com.ntmk.myapp.model.ListGardenData
 
 class ListGardenAdapter(private var Garden_List: MutableList<ListGardenData>):
     RecyclerView.Adapter<ListGardenAdapter.ViewHolder>() {
@@ -20,7 +21,7 @@ class ListGardenAdapter(private var Garden_List: MutableList<ListGardenData>):
         val LG_Image: ImageView = itemView.findViewById(R.id.imgGarden_list)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListGardenAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v:View = LayoutInflater.from(parent.context).inflate(R.layout.z_list_garden_view,parent,false)
         return ViewHolder(v)
     }

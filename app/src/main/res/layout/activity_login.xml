@@ -88,16 +88,14 @@
                     android:onTextChanged="@{()-> Loginn.onChangedTextEmail()}"
                     android:padding="15dp"
                     android:text="@={Loginn.email}"
-                    android:textColor="@color/clr_title"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
             <TextView
                 android:id="@+id/txtMessageEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="15dp"
-                android:layout_gravity="left"
-                android:layout_marginLeft="50dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="casual"
                 android:text="@={Loginn.messageLoginEmail}"
@@ -122,19 +120,17 @@
                     android:drawablePadding="10dp"
                     android:hint="@string/pass"
                     android:inputType="textPassword"
-                    android:onTextChanged="@{()-> Loginn.onChangedTextPass()}"
                     android:padding="15dp"
                     android:text="@={Loginn.pass}"
-                    android:textColor="@color/clr_title"
+                    android:onTextChanged="@{()-> Loginn.onChangedTextPass()}"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
             <TextView
                 android:id="@+id/txtMessagePass"
                 android:layout_width="wrap_content"
                 android:layout_height="15dp"
-                android:layout_gravity="left"
-                android:layout_marginLeft="50dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="casual"
                 android:text="@={Loginn.messageLoginPass}"
@@ -149,13 +145,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:text="@string/forgot_password"
+                android:layout_marginTop="10dp"
                 android:textAllCaps="false"
-                android:fontFamily="casual"
                 android:textColor="@color/text"
-                android:textSize="15sp" />
+                android:textSize="18sp" />
 
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -210,42 +206,30 @@
             </TableRow>
 
 
+
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="30dp"
-                    app:cardCornerRadius="50dp">
-
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img_gg"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:contentDescription="@string/todo"
-                        android:src="@drawable/google" />
-                </androidx.cardview.widget.CardView>
+                        android:background="@drawable/google"
+                        android:layout_marginEnd="30dp"/>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    app:cardCornerRadius="50dp">
-
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img_fb"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:contentDescription="@string/todo"
-                        android:src="@drawable/facebook" />
-                </androidx.cardview.widget.CardView>
+                        android:background="@drawable/facebook"
+                        android:layout_marginStart="30dp"/>
 
             </TableRow>
-
 
         </LinearLayout>
 

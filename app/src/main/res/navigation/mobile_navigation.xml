@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.ntmk.myapp.ui.home.HomeFragment"
+        android:name="com.ntmk.myapp.view.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_garden"
-        android:name="com.ntmk.myapp.ui.garden.GardenFragment"
+        android:name="com.ntmk.myapp.view.ui.garden.GardenFragment"
         tools:layout="@layout/fragment_garden" />
 
     <fragment
         android:id="@+id/navigation_notification"
-        android:name="com.ntmk.myapp.ui.notifications.NotificationsFragment"
+        android:name="com.ntmk.myapp.view.ui.notifications.NotificationsFragment"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.ntmk.myapp.ui.profile.ProfileFragment"
+        android:name="com.ntmk.myapp.view.ui.profile.ProfileFragment"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_navigation_profile_to_navigation_balance"
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/navigation_balance"
-        android:name="com.ntmk.myapp.ui.profile.BalanceFragment"
+        android:name="com.ntmk.myapp.view.ui.profile.BalanceFragment"
         tools:layout="@layout/fragment_balance" >
         <action
             android:id="@+id/action_navigation_balance_to_navigation_profile"

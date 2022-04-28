@@ -4,33 +4,24 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import com.google.firebase.database.*
 import com.ntmk.myapp.R
+import com.ntmk.myapp.databinding.ActivityRegistrationBinding
 import com.ntmk.myapp.model.User
 
 class RegistrationActivity : AppCompatActivity() {
 
-    private var link_signIn: TextView? = null
-    private var btn_Signup : Button? = null
-    private var txt_name : TextView? = null
-    private var txt_email : TextView? = null
-    private var txt_pass : TextView? = null
+    private lateinit var binding: ActivityRegistrationBinding
     private lateinit var database : DatabaseReference
     private lateinit var list_user : ArrayList<User>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registration)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_registration )
         init()
-//        getData()
-//        btn_Signup?.setOnClickListener {
-//            login()
-//        }
 
-        link_signIn = findViewById(R.id.txtLink_login)
 
-        link_signIn?.setOnClickListener{
+        binding.txtLinkLogin.setOnClickListener{
             val i= Intent(applicationContext, LoginActivity::class.java)
             startActivity(i)
         }
@@ -38,11 +29,6 @@ class RegistrationActivity : AppCompatActivity() {
 
     }
     fun init(){
-        link_signIn = findViewById(R.id.txtLink_login)
-        btn_Signup = findViewById(R.id.btnSignup)
-        txt_name = findViewById(R.id.txtName_regis)
-        txt_email = findViewById(R.id.txtEmail_regis)
-        txt_pass = findViewById(R.id.txtPass_regis)
         list_user = ArrayList<User>()
         database = FirebaseDatabase.getInstance().getReference("Users")
     }

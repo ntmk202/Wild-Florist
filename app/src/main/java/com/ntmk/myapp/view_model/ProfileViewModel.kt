@@ -1,13 +1,13 @@
-package com.ntmk.myapp.view.ui.garden
+package com.ntmk.myapp.view_model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GardenViewModel : ViewModel() {
+class ProfileViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is garden Fragment"
+        value = "This is Profile Fragment"
     }
     val text: LiveData<String> = _text
 }

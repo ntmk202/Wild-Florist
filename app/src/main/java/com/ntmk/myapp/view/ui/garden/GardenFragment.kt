@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.FragmentGardenBinding
-import com.ntmk.myapp.view.ui.garden.adapter.ListGardenAdapter
-import com.ntmk.myapp.view.ui.garden.adapter.ListGardenData
+import com.ntmk.myapp.adapters.ListGardenAdapter
+import com.ntmk.myapp.model.ListGardenData
 
 class GardenFragment : Fragment() {
 
