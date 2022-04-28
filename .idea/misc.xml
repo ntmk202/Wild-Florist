@@ -16,6 +16,7 @@
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable-v24/shape_note.xml" value="0.2545" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/button.xml" value="0.2145" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/dots.xml" value="0.1685" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.178" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.177" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.1215" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1685" />
@@ -25,6 +26,8 @@
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/ic_launcher_notification.xml" value="0.1" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/indicator_selector.xml" value="0.2545" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/selected.xml" value="0.2545" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/shape_arrow.xml" value="0.178" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/shape_card.xml" value="0.178" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/shape_num.xml" value="0.1605" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/shape_profile.xml" value="0.1685" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/drawable/shape_search.xml" value="0.1" />
@@ -33,11 +36,12 @@
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_forgot_pass.xml" value="0.25" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_loading.xml" value="0.1" />
-        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_setting.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/activity_verify_email.xml" value="0.19972826086956522" />
+        <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/fragment_balance.xml" value="0.264" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/fragment_garden.xml" value="0.16" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/khue/AndroidStudioProjects/Kotlin_project/MyApp/app/src/main/res/layout/fragment_live.xml" value="0.128" />

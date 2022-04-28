@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import com.ntmk.myapp.R
 import com.ntmk.myapp.SettingActivity
 import com.ntmk.myapp.databinding.FragmentProfileBinding
 
@@ -30,10 +30,16 @@ class ProfileFragment : Fragment() {
         val root: View = binding.root
 
         val setting : ImageView = binding.linkSetting
+        val linkBalance : TextView = binding.linkBalance
 
         setting.setOnClickListener {
             val i = Intent(activity, SettingActivity::class.java)
             startActivity(i)
+        }
+        linkBalance.setOnClickListener {
+            val fragment = BalanceFragment()
+            val transaction =fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.navigation_balance,fragment)?.commit()
         }
 
         return root

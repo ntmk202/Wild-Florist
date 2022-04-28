@@ -37,5 +37,7 @@
     <string name="name_flower">Name flower</string>
     <string name="_10">$10</string>
     <string name="flower_pot">Flower Pot</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>
