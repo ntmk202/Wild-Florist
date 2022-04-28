@@ -6,7 +6,7 @@ import com.google.firebase.database.*
 import com.ntmk.myapp.model.User
 
 class UserFirebase {
-    private lateinit var list_user: ArrayList<User>
+    private var list_user: ArrayList<User> = ArrayList()
     private lateinit var database: DatabaseReference
 
     init {
@@ -17,7 +17,7 @@ class UserFirebase {
         return list_user
     }
 
-    private fun getData() {
+    fun getData() {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 for (data in p0.children) {
