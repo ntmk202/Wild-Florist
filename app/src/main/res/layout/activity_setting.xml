@@ -206,9 +206,10 @@
 
         <TextView
             android:id="@+id/tv_delete_acc"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Request account deletion"
+            android:gravity="center"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

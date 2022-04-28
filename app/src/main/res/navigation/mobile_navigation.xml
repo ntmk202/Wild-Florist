@@ -23,5 +23,18 @@
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.ntmk.myapp.ui.profile.ProfileFragment"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_balance"
+            app:destination="@id/navigation_balance" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_balance"
+        android:name="com.ntmk.myapp.ui.profile.BalanceFragment"
+        tools:layout="@layout/fragment_balance" >
+        <action
+            android:id="@+id/action_navigation_balance_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
 </navigation>
