@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.ActivityMainBinding
 
