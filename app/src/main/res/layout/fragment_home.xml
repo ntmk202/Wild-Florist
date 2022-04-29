@@ -180,7 +180,6 @@
                             android:id="@+id/listProduct"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
@@ -192,7 +191,22 @@
                             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/Layout1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="130dp"
+                            android:layout_margin="10dp"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:text=""
+                            tools:ignore="MissingConstraints" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
 
             </ScrollView>
