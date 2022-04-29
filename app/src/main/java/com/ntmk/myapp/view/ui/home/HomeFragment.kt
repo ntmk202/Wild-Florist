@@ -1,6 +1,7 @@
 package com.ntmk.myapp.view.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,16 +9,23 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.FragmentHomeBinding
 import com.ntmk.myapp.adapters.CategoriesAdapter
+import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.model.ListCgrData
 import com.ntmk.myapp.adapters.ListHomeAdapter
+import com.ntmk.myapp.model.Flower
 import com.ntmk.myapp.model.ListHomeData
+import com.ntmk.myapp.model.User
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+    lateinit var mDatabase: DatabaseReference
+    private lateinit var flowerList: ArrayList<Flower>
+    private lateinit var mAdapter: ListFlowerHomeAdapter
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -31,9 +39,17 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        flowerList = ArrayList()
+        mAdapter = ListFlowerHomeAdapter(flowerList)
+        binding.listProduct.layoutManager = LinearLayoutManager(activity)
+        binding.listProduct.setHasFixedSize(true)
+        binding.listProduct.adapter = mAdapter
+        getFlowerData()
+
+
 
 //      add list
         postToListCgr()
@@ -51,6 +67,23 @@ class HomeFragment : Fragment() {
         rvHomeListItem.adapter = ListHomeAdapter(lH_data)
 
         return root
+    }
+    fun getFlowerData(){
+        mDatabase = FirebaseDatabase.getInstance().getReference("Flowers")
+        mDatabase.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                if(p0.exists()){
+                    for(data in p0.children){
+                        val flower = data.getValue(Flower::class.java)
+                        flowerList.add(flower!!)
+                    }
+                    binding.listProduct.adapter = mAdapter
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("Cancel",error.toString())
+            }
+        })
     }
 
     override fun onDestroyView() {

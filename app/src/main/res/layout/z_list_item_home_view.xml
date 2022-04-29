@@ -1,67 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="206dp"
-    android:layout_height="wrap_content"
-    android:background="@color/bgr_pager"
-    android:id="@+id/lyHomeViewList">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="listItemHome"
+            type="com.ntmk.myapp.model.Flower" />
+    </data>
 
     <RelativeLayout
-        android:layout_width="180dp"
-        android:layout_height="220dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/shape_list"
-        android:padding="5dp">
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:background="@color/bgr_pager"
+        android:id="@+id/lyHomeViewList">
 
-
-        <TextView
-            android:id="@+id/txtView_list"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/txtPrice_list"
-            android:layout_alignParentStart="true"
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_height="220dp"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="15dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="@string/name_flower"
-            android:textSize="20sp" />
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_list"
+            android:padding="5dp">
 
-        <TextView
-            android:id="@+id/txtPrice_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/_10"
-            android:textColor="@color/cannon_pink"
-            android:textSize="18sp" />
 
-        <ImageButton
-            android:id="@+id/link_list_cart"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="4dp"
-            android:background="@drawable/shape_link"
+            <TextView
+                android:id="@+id/txtView_list"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txtPrice_list"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="@={listItemHome.name}"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtPrice_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@={listItemHome.price}"
+                android:textColor="@color/cannon_pink"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/link_list_cart"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/shape_link"
+                android:contentDescription="@string/todo"
+                android:padding="10dp"
+                android:src="@drawable/cart" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imgView_list"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="-10dp"
             android:contentDescription="@string/todo"
-            android:padding="10dp"
-            android:src="@drawable/cart" />
-
+            android:imageUrl="@{listItemHome.img}"
+            android:src="@drawable/list_flower" />
 
     </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/imgView_list"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="-10dp"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/list_flower" />
-
-</RelativeLayout>
+</layout>

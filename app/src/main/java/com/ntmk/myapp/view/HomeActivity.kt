@@ -6,15 +6,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.database.DatabaseReference
 import com.ntmk.myapp.R
+import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.databinding.ActivityHomeBinding
+import com.ntmk.myapp.model.Flower
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
