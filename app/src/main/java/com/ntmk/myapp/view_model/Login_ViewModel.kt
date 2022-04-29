@@ -1,58 +1,66 @@
 package com.ntmk.myapp.view_model
 
+import android.content.Intent
 import android.text.TextUtils
 import android.util.Patterns
-import android.widget.Toast
-import androidx.databinding.BaseObservable
-import androidx.databinding.Bindable
+import android.view.View
+import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import com.ntmk.myapp.BR
+import com.ntmk.myapp.controller.UserFirebase
 import com.ntmk.myapp.model.User
+import com.ntmk.myapp.view.RegistrationActivity
 
 
-class Login_ViewModel : BaseObservable(){
-    private var email: String = ""
-    private var pass: String = ""
-    var messageLoginEmail :ObservableField<String> = ObservableField<String>()
-    var messageLoginPass :ObservableField<String> = ObservableField<String>()
+class Login_ViewModel : ViewModel() {
+    var email: String = ""
+    var pass: String = ""
+    var messageLoginEmail: ObservableField<String> = ObservableField<String>()
+    var messageLoginPass: ObservableField<String> = ObservableField<String>()
+    var listener: Listener? = null
+    private var list_user: ArrayList<User> = ArrayList()
+    var userFirebase: UserFirebase = UserFirebase()
 
-    @Bindable
-    fun getEmail() : String{
-        return this.email
-    }
-    fun setEmail(email:String){
-        this.email = email
-        notifyPropertyChanged(BR.email)
-    }
-    @Bindable
-    fun getPass() : String{
-        return this.pass
-    }
-    fun setPass(pass:String){
-        this.pass = pass
-        notifyPropertyChanged(BR.pass)
+    init {
+        userFirebase.getData()
     }
 
-    fun onClickLogin(){
-        var checkEmail : String = checkEmail(getEmail())
-        var checkPass : String = checkPass(getPass())
-        if(!checkEmail.equals("")) {
+    fun onClickLogin(): Boolean {
+        var checkIsSuccessLogin = false
+        var checkEmail: String = checkEmail(email)
+        var checkPass: String = checkPass(pass)
+        if (!checkEmail.equals("") || !checkPass.equals("")) {
             messageLoginEmail.set(checkEmail)
-        }
-        if(!checkPass.equals("")) {
             messageLoginPass.set(checkPass)
+        } else {
+            var checkInfoDatabase: Boolean = false
+            list_user = userFirebase.getListUser()
+            for (user in list_user) {
+                if (user.email.equals(email) && user.pass.equals(pass)) {
+                    checkInfoDatabase = true
+                }
+            }
+            if (checkInfoDatabase) {
+                listener?.onSuccess()
+                checkIsSuccessLogin = true
+            } else {
+                listener?.onFailure("Email or password is incorrect")
+            }
         }
+        return checkIsSuccessLogin
     }
-    fun onChangedTextEmail(){
+
+    fun onChangedTextEmail() {
         messageLoginEmail.set("")
 
     }
-    fun onChangedTextPass(){
+
+    fun onChangedTextPass() {
         messageLoginPass.set("")
 
     }
-    fun checkEmail(email:String) : String {
+
+    private fun checkEmail(email: String): String {
         var result: String = ""
         if (TextUtils.isEmpty(email)) {
             result = "Email cannot be empty"
@@ -61,11 +69,12 @@ class Login_ViewModel : BaseObservable(){
         }
         return result
     }
-    fun checkPass(pass:String) : String {
-        var result : String = ""
-        if(TextUtils.isEmpty(pass)){
+
+    private fun checkPass(pass: String): String {
+        var result: String = ""
+        if (TextUtils.isEmpty(pass)) {
             result = "Password cannot be empty"
-        }else if(pass.length < 8){
+        } else if (pass.length < 8) {
             result = "Password length should be 8 characters"
         }
         return result

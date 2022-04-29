@@ -156,13 +156,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/button"
-                android:onClick="@{()-> Loginn.onClickLogin()}"
                 android:padding="10dp"
                 android:text="@string/login"
                 android:textColorLink="#F3C5C5"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
+<!--            android:onClick="@{()-> Loginn.onClickLogin()}"-->
             <TextView
                 android:id="@+id/txtLink_signup"
                 android:layout_width="wrap_content"
