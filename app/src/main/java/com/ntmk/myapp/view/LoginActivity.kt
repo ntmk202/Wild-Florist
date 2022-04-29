@@ -25,11 +25,11 @@ open class LoginActivity : AppCompatActivity(), Listener {
 
 
         binding.btnLogin.setOnClickListener {
-            val checkIsSuccessLogin = viewModel.onClickLogin()
-            if (checkIsSuccessLogin) {
+//            val checkIsSuccessLogin = viewModel.onClickLogin()
+//            if (checkIsSuccessLogin) {
                 val i = Intent(this, LoadingActivity::class.java)
                 startActivity(i)
-            }
+//            }
         }
         binding.txtLinkSignup.setOnClickListener {
             val i = Intent(this, RegistrationActivity::class.java)
