@@ -87,6 +87,7 @@
                     android:inputType="textEmailAddress"
                     android:onTextChanged="@{()-> Loginn.onChangedTextEmail()}"
                     android:padding="15dp"
+                    android:textColor="@color/txtActionBar"
                     android:text="@={Loginn.email}"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -97,7 +98,6 @@
                 android:layout_gravity="start"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="5dp"
-                android:fontFamily="casual"
                 android:text="@={Loginn.messageLoginEmail}"
                 android:textColor="@color/color_note"
                 android:textSize="11sp"
@@ -120,6 +120,7 @@
                     android:drawablePadding="10dp"
                     android:hint="@string/pass"
                     android:inputType="textPassword"
+                    android:textColor="@color/txtActionBar"
                     android:padding="15dp"
                     android:text="@={Loginn.pass}"
                     android:onTextChanged="@{()-> Loginn.onChangedTextPass()}"
@@ -132,7 +133,6 @@
                 android:layout_gravity="start"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="5dp"
-                android:fontFamily="casual"
                 android:text="@={Loginn.messageLoginPass}"
                 android:textColor="@color/color_note"
                 android:textSize="11sp"

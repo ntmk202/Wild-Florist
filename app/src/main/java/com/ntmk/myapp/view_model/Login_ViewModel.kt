@@ -1,15 +1,11 @@
 package com.ntmk.myapp.view_model
 
-import android.content.Intent
 import android.text.TextUtils
 import android.util.Patterns
-import android.view.View
-import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import com.ntmk.myapp.controller.UserFirebase
 import com.ntmk.myapp.model.User
-import com.ntmk.myapp.view.RegistrationActivity
 
 
 class Login_ViewModel : ViewModel() {

@@ -88,6 +88,7 @@
                 android:drawablePadding="10dp"
                 android:hint="@string/user"
                 android:inputType="textPersonName"
+                android:textColor="@color/txtActionBar"
                 android:padding="15dp"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -99,7 +100,6 @@
             android:layout_gravity="start"
             android:layout_marginStart="50dp"
             android:layout_marginTop="5dp"
-            android:fontFamily="casual"
             android:text="@={Registration.messageLoginName}"
             android:textColor="@color/color_note"
             android:textSize="11sp"
@@ -125,6 +125,7 @@
                 android:drawablePadding="10dp"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/txtActionBar"
                 android:padding="15dp"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -136,7 +137,6 @@
             android:layout_gravity="start"
             android:layout_marginStart="50dp"
             android:layout_marginTop="5dp"
-            android:fontFamily="casual"
             android:text="@={Registration.messageLoginEmail}"
             android:textColor="@color/color_note"
             android:textSize="11sp"
@@ -163,6 +163,7 @@
                 android:drawablePadding="10dp"
                 android:hint="@string/pass"
                 android:inputType="textPassword"
+                android:textColor="@color/txtActionBar"
                 android:padding="15dp"
                 android:textSize="20sp" />
 
@@ -175,7 +176,6 @@
             android:layout_gravity="start"
             android:layout_marginStart="50dp"
             android:layout_marginTop="5dp"
-            android:fontFamily="casual"
             android:text="@={Registration.messageLoginPass}"
             android:textColor="@color/color_note"
             android:textSize="11sp"
