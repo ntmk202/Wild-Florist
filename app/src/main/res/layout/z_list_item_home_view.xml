@@ -25,7 +25,7 @@
 
             <TextView
                 android:id="@+id/txtView_list"
-                android:layout_width="100dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/txtPrice_list"
                 android:layout_alignParentStart="true"
