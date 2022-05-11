@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
     android:background="@color/bgr_pager"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="5dp">
+        android:layout_height="140dp">
+
+<!--        <CheckBox-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginStart="2dp"-->
+<!--            android:checked="true" />-->
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="50dp"
             android:layout_marginEnd="10dp">
 
 
@@ -37,7 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-medium"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:text="Name flower"
                         android:textSize="20sp" />
 
@@ -46,9 +54,41 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
+                        android:paddingBottom="5dp"
                         android:text="$price"
                         android:textColor="@color/cannon_pink"
                         android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/c2"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
+
+                        <EditText
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/shape_arrow"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textSize="16sp" />
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/c2"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+                    </LinearLayout>
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
@@ -58,20 +98,19 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/list_flower" />
 
         <ImageButton
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:src="@drawable/delete"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
+            android:background="@drawable/shape_delete"
             android:padding="10dp"
-            android:background="@drawable/shape_delete"/>
+            android:src="@drawable/delete" />
 
     </RelativeLayout>
-
-
 </RelativeLayout>
+</layout>

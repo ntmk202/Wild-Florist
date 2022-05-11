@@ -40,7 +40,7 @@ class Login_ViewModel : ViewModel() {
                 listener?.onSuccess()
                 checkIsSuccessLogin = true
             } else {
-                listener?.onFailure("Email or password is incorrect")
+                listener?.onFailure("Email or password incorrect")
             }
         }
         return checkIsSuccessLogin

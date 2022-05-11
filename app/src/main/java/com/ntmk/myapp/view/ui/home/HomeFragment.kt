@@ -5,70 +5,55 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.FragmentHomeBinding
 import com.ntmk.myapp.adapters.CategoriesAdapter
 import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.model.ListCgrData
-import com.ntmk.myapp.adapters.ListHomeAdapter
 import com.ntmk.myapp.model.Flower
-import com.ntmk.myapp.model.ListHomeData
-import com.ntmk.myapp.model.User
-
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var binding: FragmentHomeBinding
+
+
+    //    add variable data
+    private var Cgr_data = mutableListOf<ListCgrData>()
     lateinit var mDatabase: DatabaseReference
     private lateinit var flowerList: ArrayList<Flower>
     private lateinit var mAdapter: ListFlowerHomeAdapter
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    //    add data list
-    private var Cgr_data = mutableListOf<ListCgrData>()
-    private var lH_data = mutableListOf<ListHomeData>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
-        flowerList = ArrayList()
-        mAdapter = ListFlowerHomeAdapter(flowerList)
-        binding.listProduct.layoutManager = LinearLayoutManager(activity)
-        binding.listProduct.setHasFixedSize(true)
-        binding.listProduct.adapter = mAdapter
+
+//      add list data
+        postToListCgr()
         getFlowerData()
 
+//      Layout categories
+        binding.categories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        binding.categories.adapter = CategoriesAdapter(Cgr_data)
+//      layout flower list
+        flowerList = ArrayList()
+        mAdapter = ListFlowerHomeAdapter(flowerList)
+        binding.listProduct.layoutManager = GridLayoutManager(activity,2, GridLayoutManager.VERTICAL, false)
+        binding.listProduct.setHasFixedSize(true)
+        binding.listProduct.adapter = mAdapter
 
 
-//      add list
-        postToListCgr()
-        postToListHome()
-
-//      RecycleView
-        val rvCategoriesList : RecyclerView = binding.categories
-        val rvHomeListItem : RecyclerView = binding.listProduct
-
-//      Layout
-        rvCategoriesList.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        rvCategoriesList.adapter = CategoriesAdapter(Cgr_data)
-
-        rvHomeListItem.layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
-        rvHomeListItem.adapter = ListHomeAdapter(lH_data)
-
-        return root
+        return binding.root
     }
-    fun getFlowerData(){
+
+    private fun getFlowerData(){
         mDatabase = FirebaseDatabase.getInstance().getReference("Flowers")
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
@@ -86,11 +71,6 @@ class HomeFragment : Fragment() {
         })
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     //    list categories horizontal
     private fun postToListCgr(){
         Cgr_data.add(ListCgrData("FRESH", R.drawable.flower_item1))
@@ -102,10 +82,5 @@ class HomeFragment : Fragment() {
         Cgr_data.add(ListCgrData("TOOLS", R.drawable.gardening_tools))
     }
 
-    //    list item home
-    private fun postToListHome(){
-        lH_data.add(ListHomeData("Name Flower 1","$10",R.drawable.list_flower))
-        lH_data.add(ListHomeData("Name Flower 2","$16",R.drawable.list_flower))
-        lH_data.add(ListHomeData("Name Flower 3","$10",R.drawable.list_flower))
-    }
+
 }

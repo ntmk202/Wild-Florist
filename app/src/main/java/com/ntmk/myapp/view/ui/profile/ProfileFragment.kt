@@ -1,24 +1,17 @@
 package com.ntmk.myapp.view.ui.profile
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.ntmk.myapp.R
-import com.ntmk.myapp.view.SettingActivity
 import com.ntmk.myapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentProfileBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,27 +19,24 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
 
-        val setting : ImageView = binding.linkSetting
-        val linkBalance : TextView = binding.linkBalance
-
-        setting.setOnClickListener {
-            val i = Intent(activity, SettingActivity::class.java)
-            startActivity(i)
-        }
-        linkBalance.setOnClickListener {
-            val fragment = BalanceFragment()
-            val transaction =fragmentManager?.beginTransaction()
-            transaction?.replace(R.id.navigation_balance,fragment)?.commit()
+        val settingFragment = SettingFragment()
+        binding.linkSetting.setOnClickListener {
+            fragmentManager?.beginTransaction()?.apply {
+                replace(R.id.nav_profile, settingFragment, SettingFragment::class.java.simpleName)
+                    .addToBackStack(null).commit()
+            }
         }
 
-        return root
-    }
+        val balanceFragment = BalanceFragment()
+        binding.linkBalance.setOnClickListener {
+            fragmentManager?.beginTransaction()?.apply {
+                replace(R.id.nav_profile, balanceFragment, BalanceFragment::class.java.simpleName)
+                    .addToBackStack(null).commit()
+            }
+        }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        return binding.root
     }
 }

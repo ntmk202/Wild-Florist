@@ -7,23 +7,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
+import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.ntmk.myapp.R
 import com.ntmk.myapp.adapters.OnBoardingAdapter
+import com.ntmk.myapp.databinding.ActivityAdvertisementBinding
 import com.ntmk.myapp.model.OnBoardingData
 
 class AdvertisementActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityAdvertisementBinding
 //    add init
     private var onBoardingAdapter: OnBoardingAdapter? = null
-    private var tabLayout: TabLayout? = null
     private var onBoardingViewPaper: ViewPager? = null
-    var btn_next: Button? = null
-    var btn_skip: Button? = null
     var position = 0
-    var sharedPreferences: SharedPreferences? = null
+    private var sharedPreferences: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,17 +31,13 @@ class AdvertisementActivity : AppCompatActivity() {
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
         supportActionBar?.hide()
 
-        setContentView(R.layout.activity_advertisement)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_advertisement)
 
 
         if(restorePrefData()){
             gotoLogin()
             finish()
         }
-
-        tabLayout = findViewById(R.id.tab)
-        btn_next = findViewById(R.id.btn_next)
-        btn_skip = findViewById(R.id.btn_skip)
 
         // add data list
         val onBoardingData:MutableList<OnBoardingData> = ArrayList()
@@ -60,7 +55,7 @@ class AdvertisementActivity : AppCompatActivity() {
 
         // add onClickListener for btn_bottom
         position = onBoardingViewPaper!!.currentItem
-        btn_next?.setOnClickListener{
+        binding.btnNext.setOnClickListener{
 
             if(position<onBoardingData.size){
                 position++
@@ -71,22 +66,18 @@ class AdvertisementActivity : AppCompatActivity() {
                 gotoLogin()
             }
         }
-        btn_skip?.setOnClickListener{
+        binding.btnNext.setOnClickListener{
             gotoLogin()
         }
 
-        tabLayout!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        binding.tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
 
                 position = tab!!.position
                 if(tab.position == onBoardingData.size - 1){
-                    btn_next!!.text = "FINISH"
-//                    btn_next?.setOnClickListener{
-//                        startActivity(Intent(activity,LoginActivity::class.java))
-//                        finish()
-//                    }
+                    "FINISH".also { binding.btnNext.text = it }
                 }else{
-                    btn_next!!.text = "NEXT"
+                    "NEXT".also { binding.btnNext.text = it }
                 }
             }
 
@@ -101,10 +92,10 @@ class AdvertisementActivity : AppCompatActivity() {
     }
 
     private fun setViewPaperAdapter(onBoardingData: List<OnBoardingData>){
-        onBoardingViewPaper = findViewById(R.id.SlideVIewPaper)
+        onBoardingViewPaper = binding.SlideVIewPaper
         onBoardingAdapter = OnBoardingAdapter(this, onBoardingData)
-        onBoardingViewPaper!!.adapter = onBoardingAdapter
-        tabLayout?.setupWithViewPager(onBoardingViewPaper)
+        onBoardingViewPaper?.adapter = onBoardingAdapter
+        binding.tab.setupWithViewPager(onBoardingViewPaper)
     }
 
     private fun gotoLogin(){

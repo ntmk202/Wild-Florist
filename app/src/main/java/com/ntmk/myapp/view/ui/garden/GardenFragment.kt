@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,11 +15,7 @@ import com.ntmk.myapp.model.ListGardenData
 
 class GardenFragment : Fragment() {
 
-    private var _binding: FragmentGardenBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentGardenBinding
 
     //    add data list
     private var Garden_data = mutableListOf<ListGardenData>()
@@ -29,8 +26,7 @@ class GardenFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentGardenBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_garden, container, false)
 
         postToListHome()
 
@@ -41,12 +37,7 @@ class GardenFragment : Fragment() {
         rvGardenList.layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         rvGardenList.adapter = ListGardenAdapter(Garden_data)
 
-        return root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        return binding.root
     }
 
     //    list item garden

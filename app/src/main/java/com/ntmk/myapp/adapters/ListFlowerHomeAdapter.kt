@@ -1,6 +1,5 @@
 package com.ntmk.myapp.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -16,9 +15,9 @@ class ListFlowerHomeAdapter(var flowerList:ArrayList<Flower>)
     inner class ListFlowerHomeViewHolder(var v:ZListItemHomeViewBinding) : RecyclerView.ViewHolder(v.root){}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListFlowerHomeViewHolder {
-        val infler = LayoutInflater.from(parent.context)
+        val inflater = LayoutInflater.from(parent.context)
         val v = DataBindingUtil.inflate<ZListItemHomeViewBinding>(
-            infler, R.layout.z_list_item_home_view,parent,false
+            inflater, R.layout.z_list_item_home_view,parent,false
         )
         return  ListFlowerHomeViewHolder(v)
     }

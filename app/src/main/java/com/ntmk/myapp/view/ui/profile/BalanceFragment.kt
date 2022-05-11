@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.FragmentBalanceBinding
 
@@ -15,11 +17,8 @@ import com.ntmk.myapp.databinding.FragmentBalanceBinding
  */
 class BalanceFragment : Fragment() {
 
-    private var _binding: FragmentBalanceBinding? = null
+    private lateinit var binding: FragmentBalanceBinding
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,20 +26,40 @@ class BalanceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentBalanceBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_balance, container, false)
+
+
+//        val profileFragment = ProfileFragment()
+//        binding.linkBack.setOnClickListener {
+//            fragmentManager?.beginTransaction()?.apply {
+//                replace(R.id.nav_profile, profileFragment, ProfileFragment::class.java.simpleName)
+//                    .addToBackStack(null).commit()
+//            }
+//            fragmentManager?.saveBackStack(
+//                FragmentTransaction.TRANSIT_FRAGMENT_MATCH_ACTIVITY_OPEN.toString()
+//            )
+//        }
+
         return binding.root
+    }
 
-        val linkBack : ImageButton = binding.linkBack
-        linkBack.setOnClickListener {
-            val fragment = BalanceFragment()
-            val transaction =fragmentManager?.beginTransaction()
-            transaction?.replace(R.id.navigation_profile,fragment)?.commit()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.linkBack.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
         }
-
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            ProfileFragment().apply {
+                arguments = Bundle().apply {
+                }
+            }
     }
+
+
+
 }
