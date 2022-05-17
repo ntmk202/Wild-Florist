@@ -5,195 +5,195 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:background="@color/bgr_pager"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.ui.home.HomeFragment">
-
-    <LinearLayout
-        android:id="@+id/lyTop"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/bgr_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_margin="20dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        tools:context=".view.ui.home.HomeFragment">
 
-        <EditText
-            android:id="@+id/txtSearch"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:background="@drawable/shape_search"
-            android:queryBackground="@android:color/transparent"
-            android:hint="@string/search_here"
-            android:drawableStart="@drawable/search"
-            android:drawablePadding="20dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp"
-            android:layout_gravity="center_vertical"
-            android:inputType="text"
-            android:autofillHints="name"/>
-
-        <ImageView
-            android:id="@+id/imgCart"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/todo"
-            android:padding="5dp"
-            android:src="@drawable/cart"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="15dp"/>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="691dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lyTop">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/lyTop"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
 
-            <ScrollView
+            <EditText
+                android:id="@+id/txtSearch"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:background="@drawable/shape_search"
+                android:queryBackground="@android:color/transparent"
+                android:hint="@string/search_here"
+                android:drawableStart="@drawable/search"
+                android:drawablePadding="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:layout_gravity="center_vertical"
+                android:inputType="text"
+                android:autofillHints="name"/>
+
+            <ImageView
+                android:id="@+id/imgCart"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/todo"
+                android:padding="5dp"
+                android:src="@drawable/cart"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="691dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyTop">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent">
 
-                <LinearLayout
+                <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
+                    android:scrollbars="none"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/shape_note"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtSearch">
-
-                        <LinearLayout
-                            android:id="@+id/lyNote"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:id="@+id/txtHeadingTip"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:letterSpacing="0.01"
-                                android:paddingTop="20dp"
-                                android:paddingBottom="10dp"
-                                android:text="@string/today_tips"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/txtTitleTip"
-                                android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                android:letterSpacing="0.01"
-                                android:lineSpacingExtra="5dp"
-                                android:text="@string/tip_note_title"
-                                android:textSize="15sp" />
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="4dp"
-                            android:contentDescription="@string/todo"
-                            android:src="@drawable/rosenote"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/lyNote"
-                            app:layout_constraintTop_toBottomOf="parent" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/categories"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintLayout"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp"
+                            android:layout_height="120dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/shape_note"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:itemCount="1"
-                            tools:listitem="@layout/z_categories_item_view"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+                            app:layout_constraintTop_toBottomOf="@+id/txtSearch">
 
+                            <LinearLayout
+                                android:id="@+id/lyNote"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
 
-                        </androidx.recyclerview.widget.RecyclerView>
+                                <TextView
+                                    android:id="@+id/txtHeadingTip"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:letterSpacing="0.01"
+                                    android:paddingTop="20dp"
+                                    android:paddingBottom="10dp"
+                                    android:text="@string/today_tips"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_vertical"
-                            android:padding="5dp"
-                            android:text="@string/discover"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.044"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/categories" />
+                                <TextView
+                                    android:id="@+id/txtTitleTip"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:letterSpacing="0.01"
+                                    android:lineSpacingExtra="5dp"
+                                    android:text="@string/tip_note_title"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/listProduct"
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="4dp"
+                                android:contentDescription="@string/todo"
+                                android:src="@drawable/rosenote"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/lyNote"
+                                app:layout_constraintTop_toBottomOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:paddingBottom="60dp"
+                            android:layout_height="wrap_content"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView"
-                            tools:itemCount="1"
-                            tools:listitem="@layout/z_list_item_home_view"
-                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+                            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/categories"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="10dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:itemCount="1"
+                                tools:listitem="@layout/z_categories_item_view"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
-                </LinearLayout>
 
-            </ScrollView>
+                            </androidx.recyclerview.widget.RecyclerView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:padding="5dp"
+                                android:text="@string/discover"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.044"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/categories" />
 
-    </LinearLayout>
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/listProduct"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:paddingBottom="60dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/textView"
+                                tools:itemCount="1"
+                                tools:listitem="@layout/z_list_item_home_view"
+                                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

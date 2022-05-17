@@ -29,17 +29,6 @@ class BalanceFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_balance, container, false)
 
 
-//        val profileFragment = ProfileFragment()
-//        binding.linkBack.setOnClickListener {
-//            fragmentManager?.beginTransaction()?.apply {
-//                replace(R.id.nav_profile, profileFragment, ProfileFragment::class.java.simpleName)
-//                    .addToBackStack(null).commit()
-//            }
-//            fragmentManager?.saveBackStack(
-//                FragmentTransaction.TRANSIT_FRAGMENT_MATCH_ACTIVITY_OPEN.toString()
-//            )
-//        }
-
         return binding.root
     }
 
@@ -51,14 +40,7 @@ class BalanceFragment : Fragment() {
         }
     }
 
-//    companion object {
-//        @JvmStatic
-//        fun newInstance() =
-//            ProfileFragment().apply {
-//                arguments = Bundle().apply {
-//                }
-//            }
-//    }
+
 
 
 
