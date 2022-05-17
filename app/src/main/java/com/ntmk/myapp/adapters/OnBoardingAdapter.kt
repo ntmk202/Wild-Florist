@@ -20,19 +20,15 @@ class OnBoardingAdapter(private var context : Context, private var onBoardingDat
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-
         container.removeView(`object` as View)
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = LayoutInflater.from(context).inflate(R.layout.slide_layout,null)
-        val images: ImageView
-        val headings: TextView
-        val titles: TextView
 
-        images = view.findViewById(R.id.img_slide)
-        headings = view.findViewById(R.id.headingSlide)
-        titles = view.findViewById(R.id.title_slide)
+        val images: ImageView = view.findViewById(R.id.img_slide)
+        val headings: TextView = view.findViewById(R.id.headingSlide)
+        val titles: TextView = view.findViewById(R.id.title_slide)
 
         images.setImageResource(onBoardingDataList[position].images)
         headings.text = onBoardingDataList[position].headings
