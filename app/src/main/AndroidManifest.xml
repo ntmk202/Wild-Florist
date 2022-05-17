@@ -18,6 +18,9 @@
             android:name=".view.CartActivity"
             android:exported="false" />
         <activity
+            android:name=".view.ZViewerProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ForgotPassActivity"
             android:exported="false" />
         <activity

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -8,19 +9,23 @@
     </data>
 
     <RelativeLayout
-        android:layout_width="185dp"
-        android:layout_height="270dp"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
         android:background="@color/bgr_pager"
-        android:id="@+id/lyHomeViewList">
+        android:id="@+id/lyHomeViewList"
+        tools:context=".view.ui.home.HomeFragment">
 
         <RelativeLayout
-            android:layout_width="170dp"
-            android:layout_height="220dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
+            android:layout_width="160dp"
+            android:layout_height="230dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/lyViewListPink"
+
             android:background="@drawable/shape_list"
             android:padding="5dp">
-
+<!--            android:onClick="@{()-> listItemHome.OnClick()}"-->
 
             <TextView
                 android:id="@+id/txtView_list"
@@ -29,7 +34,7 @@
                 android:layout_above="@+id/txtPrice_list"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="10dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="@={listItemHome.name}"
                 android:textSize="20sp" />
@@ -47,7 +52,7 @@
                 android:textSize="18sp" />
 
             <ImageButton
-                android:id="@+id/link_list_cart"
+                android:id="@+id/btn_addProductToCart"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
@@ -59,16 +64,18 @@
                 android:padding="10dp"
                 android:src="@drawable/cart" />
 
+
         </RelativeLayout>
 
         <ImageView
             android:id="@+id/imgView_list"
-            android:layout_width="140dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="-10dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="60dp"
             android:contentDescription="@string/todo"
-            android:imageUrl="@{listItemHome.img}" />
+            android:imageUrl="@{listItemHome.img}"
+            android:src="@drawable/list_flower" />
 
     </RelativeLayout>
 </layout>
