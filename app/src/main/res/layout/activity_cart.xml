@@ -64,11 +64,12 @@
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/ListCartTab"
+                    android:id="@+id/flowerCart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:itemCount="1"
-                    tools:listitem="@layout/z_list_cart_tab_view" />
+                    tools:listitem="@layout/z_list_cart_tab_view"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
             </LinearLayout>
         </ScrollView>
 

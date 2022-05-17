@@ -35,9 +35,10 @@
         android:layout_height="470dp"
         android:background="@drawable/shape_imges"
         android:layout_marginTop="-60dp"
+        android:layout_marginBottom="-50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgV_product">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/viewHome_name"

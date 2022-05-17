@@ -51,14 +51,14 @@ class BalanceFragment : Fragment() {
         }
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
-    }
+//    companion object {
+//        @JvmStatic
+//        fun newInstance() =
+//            ProfileFragment().apply {
+//                arguments = Bundle().apply {
+//                }
+//            }
+//    }
 
 
 

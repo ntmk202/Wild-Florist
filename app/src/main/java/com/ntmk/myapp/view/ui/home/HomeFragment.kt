@@ -18,15 +18,9 @@ import com.ntmk.myapp.databinding.FragmentHomeBinding
 import com.ntmk.myapp.adapters.CategoriesAdapter
 import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.model.ListCgrData
-import com.ntmk.myapp.adapters.ListHomeAdapter
-import com.ntmk.myapp.databinding.ActivityLoginBinding
 import com.ntmk.myapp.databinding.ZListItemHomeViewBinding
 import com.ntmk.myapp.model.Flower
-import com.ntmk.myapp.model.ListHomeData
-import com.ntmk.myapp.model.User
 import com.ntmk.myapp.view.CartActivity
-import com.ntmk.myapp.view.LoadingActivity
-import com.ntmk.myapp.view_model.Login_ViewModel
 
 class HomeFragment : Fragment() {
 
@@ -43,7 +37,6 @@ class HomeFragment : Fragment() {
 
     //    add data list
     private var Cgr_data = mutableListOf<ListCgrData>()
-    private var lH_data = mutableListOf<ListHomeData>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,12 +44,13 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         //mbinding = DataBindingUtil.setContentView(requireActivity(), R.layout.z_list_item_home_view)
+
         mbinding =  ZListItemHomeViewBinding.inflate(inflater, container, false)
         flowerList = ArrayList()
         mAdapter = ListFlowerHomeAdapter(requireContext(),flowerList)
 
 
-        binding.listProduct.layoutManager = LinearLayoutManager(activity)
+        binding.listProduct.layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         binding.listProduct.setHasFixedSize(true)
         binding.listProduct.adapter = mAdapter
 
@@ -69,28 +63,20 @@ class HomeFragment : Fragment() {
             println("CLICKED!!!!")
         }
 
-
         binding.imgCart.setOnClickListener {
-            val i :Intent = Intent(context, CartActivity::class.java)
+            val i = Intent(context, CartActivity::class.java)
             startActivity(i)
         }
 
 //      add list
         postToListCgr()
-//        postToListHome()
-
-//      RecycleView
-        val rvCategoriesList : RecyclerView = binding.categories
-        val rvHomeListItem : RecyclerView = binding.listProduct
 
 //      Layout
-        rvCategoriesList.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        rvCategoriesList.adapter = CategoriesAdapter(Cgr_data)
+        binding.categories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        binding.categories.adapter = CategoriesAdapter(Cgr_data)
 
-        rvHomeListItem.layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
-        rvHomeListItem.adapter = ListHomeAdapter(lH_data)
-        val root: View = binding.root
-        return root
+
+        return binding.root
     }
     fun getFlowerData(){
         mDatabase = FirebaseDatabase.getInstance().getReference("Flowers")
@@ -128,10 +114,4 @@ class HomeFragment : Fragment() {
         Cgr_data.add(ListCgrData("TOOLS", R.drawable.gardening_tools))
     }
 
-    //    list item home
-//    private fun postToListHome(){
-//        lH_data.add(ListHomeData("Name Flower 1","$10",R.drawable.list_flower))
-//        lH_data.add(ListHomeData("Name Flower 2","$16",R.drawable.list_flower))
-//        lH_data.add(ListHomeData("Name Flower 3","$10",R.drawable.list_flower))
-//    }
 }
