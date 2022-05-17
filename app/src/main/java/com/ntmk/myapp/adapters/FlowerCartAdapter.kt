@@ -31,7 +31,6 @@ class FlowerCartAdapter(var context: Context, var listFlowerCart:ArrayList<Flowe
             btnRemoveFlower = v.btnRemoveFlower
             btnIncreaseQuantity = v.btnIncreaseqQuantity
             btnDecreaseQuantity = v.btnDecreaseqQuantity
-            checkbox = v.checkboxCart
             database.getDataFlowerCart()
         }
     }

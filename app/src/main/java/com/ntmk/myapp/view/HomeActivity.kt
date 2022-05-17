@@ -10,6 +10,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.ActivityHomeBinding
+import com.ntmk.myapp.model.Flower
+import com.ntmk.myapp.model.User
 import com.ntmk.myapp.view.ui.profile.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -21,10 +23,11 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
-
-
-//        binding = ActivityHomeBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
+        var mBundle : Bundle = intent.extras!!
+        if (mBundle == null ){
+            return
+        }
+        var user : User = mBundle.get("UserLogin") as User
 
 
         val navView: BottomNavigationView = binding.navView

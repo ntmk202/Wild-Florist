@@ -1,5 +1,6 @@
 package com.ntmk.myapp.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,8 +11,6 @@ import com.ntmk.myapp.R
 import com.ntmk.myapp.adapters.FlowerCartAdapter
 import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.databinding.ActivityCartBinding
-import com.ntmk.myapp.databinding.ActivityHomeBinding
-import com.ntmk.myapp.model.Flower
 import com.ntmk.myapp.model.FlowerCart
 
 class CartActivity : AppCompatActivity() {
@@ -32,10 +31,16 @@ class CartActivity : AppCompatActivity() {
         binding.flowerCart.adapter = mAdapter
         getFlowerData()
 
+        binding.linkBack.setOnClickListener {
+            val i= Intent(this,HomeActivity::class.java)
+            startActivity(i)
+        }
+
 
 
     }
     fun getFlowerData(){
+
         mDatabase = FirebaseDatabase.getInstance().getReference("FlowerCart")
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
@@ -45,9 +50,12 @@ class CartActivity : AppCompatActivity() {
                         val flower = data.getValue(FlowerCart::class.java)
                         mListFlowerCart.add(flower!!)
                     }
-
+                    var total_Price : Int = 0
+                    for(flower in mListFlowerCart){
+                        total_Price = total_Price + flower.quantity * getNumberPrice(flower.price)
+                    }
+                    binding.txtTotalPrice.setText("$"+total_Price.toString())
                     binding.flowerCart.adapter = mAdapter
-
                     binding.flowerCart.adapter?.notifyDataSetChanged()
 
                 }
@@ -56,6 +64,13 @@ class CartActivity : AppCompatActivity() {
                 Log.e("Cancel",error.toString())
             }
         })
+
+    }
+    fun getNumberPrice(string : String):Int{
+        var number : String = ""
+        number = string.replace("\$","")
+        println(number)
+        return number.toInt()
     }
 
 
