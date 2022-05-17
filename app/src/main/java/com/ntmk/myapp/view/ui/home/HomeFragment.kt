@@ -45,12 +45,13 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         //mbinding = DataBindingUtil.setContentView(requireActivity(), R.layout.z_list_item_home_view)
 
-        mbinding =  ZListItemHomeViewBinding.inflate(inflater, container, false)
+        mbinding = ZListItemHomeViewBinding.inflate(inflater, container, false)
         flowerList = ArrayList()
-        mAdapter = ListFlowerHomeAdapter(requireContext(),flowerList)
+        mAdapter = ListFlowerHomeAdapter(requireContext(), flowerList)
 
 
-        binding.listProduct.layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
+        binding.listProduct.layoutManager =
+            GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         binding.listProduct.setHasFixedSize(true)
         binding.listProduct.adapter = mAdapter
 
@@ -72,18 +73,20 @@ class HomeFragment : Fragment() {
         postToListCgr()
 
 //      Layout
-        binding.categories.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        binding.categories.layoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         binding.categories.adapter = CategoriesAdapter(Cgr_data)
 
 
         return binding.root
     }
-    fun getFlowerData(){
+
+    fun getFlowerData() {
         mDatabase = FirebaseDatabase.getInstance().getReference("Flowers")
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
-                if(p0.exists()){
-                    for(data in p0.children){
+                if (p0.exists()) {
+                    for (data in p0.children) {
                         val flower = data.getValue(Flower::class.java)
                         flowerList.add(flower!!)
                     }
@@ -92,8 +95,9 @@ class HomeFragment : Fragment() {
 
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Cancel",error.toString())
+                Log.e("Cancel", error.toString())
             }
         })
     }
@@ -104,7 +108,7 @@ class HomeFragment : Fragment() {
     }
 
     //    list categories horizontal
-    private fun postToListCgr(){
+    private fun postToListCgr() {
         Cgr_data.add(ListCgrData("FRESH", R.drawable.flower_item1))
         Cgr_data.add(ListCgrData("DRIED", R.drawable.flower_dried))
         Cgr_data.add(ListCgrData("ORNAMENT", R.drawable.flower_pot))

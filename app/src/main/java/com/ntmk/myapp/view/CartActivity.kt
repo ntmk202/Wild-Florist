@@ -25,50 +25,52 @@ class CartActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         mListFlowerCart = ArrayList()
-        mAdapter = FlowerCartAdapter(this,mListFlowerCart)
+        mAdapter = FlowerCartAdapter(this, mListFlowerCart)
         binding.flowerCart.layoutManager = LinearLayoutManager(this)
         binding.flowerCart.setHasFixedSize(true)
         binding.flowerCart.adapter = mAdapter
         getFlowerData()
 
         binding.linkBack.setOnClickListener {
-            val i= Intent(this,HomeActivity::class.java)
+            val i = Intent(this, HomeActivity::class.java)
             startActivity(i)
         }
 
 
-
     }
-    fun getFlowerData(){
+
+    fun getFlowerData() {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("FlowerCart")
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
-                if(p0.exists()){
+                if (p0.exists()) {
                     mListFlowerCart.removeAll(mListFlowerCart)
-                    for(data in p0.children){
+                    for (data in p0.children) {
                         val flower = data.getValue(FlowerCart::class.java)
                         mListFlowerCart.add(flower!!)
                     }
-                    var total_Price : Int = 0
-                    for(flower in mListFlowerCart){
+                    var total_Price: Int = 0
+                    for (flower in mListFlowerCart) {
                         total_Price = total_Price + flower.quantity * getNumberPrice(flower.price)
                     }
-                    binding.txtTotalPrice.setText("$"+total_Price.toString())
+                    binding.txtTotalPrice.setText("$" + total_Price.toString())
                     binding.flowerCart.adapter = mAdapter
                     binding.flowerCart.adapter?.notifyDataSetChanged()
 
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Cancel",error.toString())
+                Log.e("Cancel", error.toString())
             }
         })
 
     }
-    fun getNumberPrice(string : String):Int{
-        var number : String = ""
-        number = string.replace("\$","")
+
+    fun getNumberPrice(string: String): Int {
+        var number: String = ""
+        number = string.replace("\$", "")
         println(number)
         return number.toInt()
     }

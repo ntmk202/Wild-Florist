@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ntmk.myapp.R
 import com.ntmk.myapp.model.ListGardenData
 
-class ListGardenAdapter(private var Garden_List: MutableList<ListGardenData>):
+class ListGardenAdapter(private var Garden_List: MutableList<ListGardenData>) :
     RecyclerView.Adapter<ListGardenAdapter.ViewHolder>() {
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val LG_Name: TextView = itemView.findViewById(R.id.txtGarden_list)
         val LG_Temperature: TextView = itemView.findViewById(R.id.link_gardenTemp)
@@ -22,7 +22,8 @@ class ListGardenAdapter(private var Garden_List: MutableList<ListGardenData>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v:View = LayoutInflater.from(parent.context).inflate(R.layout.z_list_garden_view,parent,false)
+        val v: View =
+            LayoutInflater.from(parent.context).inflate(R.layout.z_list_garden_view, parent, false)
         return ViewHolder(v)
     }
 

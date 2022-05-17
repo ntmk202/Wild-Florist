@@ -23,7 +23,7 @@ class ProfileFragment : Fragment() {
     ): View {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
-
+        changeTextView()
         val settingFragment = SettingFragment()
         binding.linkSetting.setOnClickListener {
             fragmentManager?.beginTransaction()?.apply {
@@ -41,10 +41,15 @@ class ProfileFragment : Fragment() {
         }
 
         binding.btnLogout.setOnClickListener {
-            val i= Intent(context, LoginActivity::class.java)
+            val i = Intent(context, LoginActivity::class.java)
             startActivity(i)
         }
 
         return binding.root
+    }
+
+    fun changeTextView() {
+        binding.userName.setText("VKU")
+        binding.userEmail.setText("vku@gmail.com")
     }
 }

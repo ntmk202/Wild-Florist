@@ -10,7 +10,10 @@ import androidx.viewpager.widget.PagerAdapter
 import com.ntmk.myapp.R
 import com.ntmk.myapp.model.OnBoardingData
 
-class OnBoardingAdapter(private var context : Context, private var onBoardingDataList: List<OnBoardingData>) : PagerAdapter() {
+class OnBoardingAdapter(
+    private var context: Context,
+    private var onBoardingDataList: List<OnBoardingData>
+) : PagerAdapter() {
     override fun getCount(): Int {
         return onBoardingDataList.size
     }
@@ -25,7 +28,7 @@ class OnBoardingAdapter(private var context : Context, private var onBoardingDat
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = LayoutInflater.from(context).inflate(R.layout.slide_layout,null)
+        val view = LayoutInflater.from(context).inflate(R.layout.slide_layout, null)
         val images: ImageView
         val headings: TextView
         val titles: TextView

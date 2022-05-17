@@ -17,15 +17,16 @@ import com.ntmk.myapp.controller.CartFirebase
 import com.ntmk.myapp.model.Flower
 import com.ntmk.myapp.model.FlowerCart
 
-class ListFlowerHomeAdapter(var context: Context,var flowerList:ArrayList<Flower>)
-    :RecyclerView.Adapter<ListFlowerHomeAdapter.ListFlowerHomeViewHolder>()
-{
-    var mContext : Context? = context
+class ListFlowerHomeAdapter(var context: Context, var flowerList: ArrayList<Flower>) :
+    RecyclerView.Adapter<ListFlowerHomeAdapter.ListFlowerHomeViewHolder>() {
+    var mContext: Context? = context
 
-    inner class ListFlowerHomeViewHolder(var v:ZListItemHomeViewBinding) : RecyclerView.ViewHolder(v.root){
-        var itemFlower : RelativeLayout? = null
-        var btnAddCart : ImageButton? = null
-        var database : CartFirebase = CartFirebase()
+    inner class ListFlowerHomeViewHolder(var v: ZListItemHomeViewBinding) :
+        RecyclerView.ViewHolder(v.root) {
+        var itemFlower: RelativeLayout? = null
+        var btnAddCart: ImageButton? = null
+        var database: CartFirebase = CartFirebase()
+
         init {
             itemFlower = v.lyHomeViewList
             btnAddCart = v.btnAddProductToCart
@@ -36,57 +37,58 @@ class ListFlowerHomeAdapter(var context: Context,var flowerList:ArrayList<Flower
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListFlowerHomeViewHolder {
         val infler = LayoutInflater.from(parent.context)
         val v = DataBindingUtil.inflate<ZListItemHomeViewBinding>(
-            infler, R.layout.z_list_item_home_view,parent,false
+            infler, R.layout.z_list_item_home_view, parent, false
         )
-        return  ListFlowerHomeViewHolder(v)
+        return ListFlowerHomeViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: ListFlowerHomeViewHolder, position: Int) {
         holder.v.listItemHome = flowerList[position]
-        var flower : Flower = flowerList[position]
+        var flower: Flower = flowerList[position]
         holder.itemFlower?.setOnClickListener {
             onClickGoToDetail(flower)
         }
         holder.btnAddCart?.setOnClickListener {
             var listFlowerCart: ArrayList<FlowerCart> = ArrayList()
             listFlowerCart = holder.database.getListFlowerCart()
-            var mFlowerCart : FlowerCart = FlowerCart()
+            var mFlowerCart: FlowerCart = FlowerCart()
 
             mFlowerCart.idFlower = flower.id!!
             mFlowerCart.name = flower.name!!
             mFlowerCart.price = flower.price!!
             mFlowerCart.img = flower.img!!
-            var check : Boolean = false
+            var check: Boolean = false
             for (flower in listFlowerCart) {
-                if(mFlowerCart.idFlower == flower.idFlower){
+                if (mFlowerCart.idFlower == flower.idFlower) {
                     mFlowerCart.id = flower.id
                     mFlowerCart.quantity = flower.quantity + 1
                     check = true
                 }
             }
-            if(!check){
-                if (listFlowerCart.size == 0){
+            if (!check) {
+                if (listFlowerCart.size == 0) {
                     mFlowerCart.id = 0
-                }else{
+                } else {
                     mFlowerCart.id = listFlowerCart.get(listFlowerCart.size - 1).id + 1
                 }
                 mFlowerCart.quantity = 1
             }
 
             holder.database.addFlowerCart(mFlowerCart)
-            Toast.makeText(mContext,"Thêm sản phẩm thành công",Toast.LENGTH_LONG).show()
+            Toast.makeText(mContext, "Thêm sản phẩm thành công", Toast.LENGTH_LONG).show()
         }
     }
-    fun onClickGoToDetail( flower : Flower){
+
+    fun onClickGoToDetail(flower: Flower) {
         val i = Intent(mContext, ZViewerProductActivity::class.java)
-        var mBundle : Bundle =  Bundle()
-        mBundle.putSerializable("Flower",flower)
+        var mBundle: Bundle = Bundle()
+        mBundle.putSerializable("Flower", flower)
         i.putExtras(mBundle)
         mContext?.startActivity(i)
 
     }
 
     override fun getItemCount(): Int {
-        return  flowerList.size
+        return flowerList.size
     }
 }

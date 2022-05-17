@@ -50,7 +50,13 @@ class RegistrationViewModel : ViewModel() {
             } else if (email in list_email) {
                 listener?.onFailure("Email already exists")
             } else {
-                var id: Int = list_user.get(list_user.size - 1).id + 1
+                var id : Int = 0
+                if(list_user.size == 0){
+                    id = 0
+                }else{
+                    id = list_user.get(list_user.size - 1).id + 1
+                }
+
                 var user = User(id, name, email, pass)
                 userFirebase.addUser(user)
                 listener?.onSuccess()

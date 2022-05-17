@@ -9,6 +9,6 @@ class FlowerCart : Serializable {
     var name: String = ""
     var price: String = ""
     var img: String? = null
-    var quantity : Int = 0
-    
+    var quantity: Int = 0
+
 }

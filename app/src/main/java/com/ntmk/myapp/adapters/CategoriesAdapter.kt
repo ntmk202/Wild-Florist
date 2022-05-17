@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ntmk.myapp.R
 import com.ntmk.myapp.model.ListCgrData
 
-class CategoriesAdapter (private var Cgr_List: List<ListCgrData>):
+class CategoriesAdapter(private var Cgr_List: List<ListCgrData>) :
     RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val cgrTitles: TextView = itemView.findViewById(R.id.txtV_categories)
         val cgrImages: ImageView = itemView.findViewById(R.id.imgV_categories)
@@ -22,7 +22,8 @@ class CategoriesAdapter (private var Cgr_List: List<ListCgrData>):
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val v:View = LayoutInflater.from(parent.context).inflate(R.layout.z_categories_item_view,parent,false)
+        val v: View = LayoutInflater.from(parent.context)
+            .inflate(R.layout.z_categories_item_view, parent, false)
         return ViewHolder(v)
     }
 

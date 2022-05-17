@@ -23,12 +23,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
-        var mBundle : Bundle = intent.extras!!
-        if (mBundle == null ){
-            return
-        }
-        var user : User = mBundle.get("UserLogin") as User
-
 
         val navView: BottomNavigationView = binding.navView
 
@@ -37,7 +31,10 @@ class HomeActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_garden, R.id.navigation_notification,R.id.navigation_profile
+                R.id.navigation_home,
+                R.id.navigation_garden,
+                R.id.navigation_notification,
+                R.id.navigation_profile
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)

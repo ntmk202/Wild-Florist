@@ -14,6 +14,28 @@
         android:roundIcon="@mipmap/logo_img"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token"/>
+
         <activity
             android:name=".BalanceActivity"
             android:exported="false" />
@@ -41,9 +63,6 @@
             android:exported="false" />
         <activity
             android:name=".view.RegistrationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.SettingActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"
