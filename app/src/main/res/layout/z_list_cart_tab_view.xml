@@ -19,7 +19,7 @@
             android:layout_margin="5dp">
 
             <CheckBox
-                android:id="@+id/txtRmAcc"
+                android:id="@+id/checkbox_cart"
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
@@ -66,6 +66,7 @@
                             android:text="@={FlowerCart.price}"
                             android:textColor="@color/cannon_pink"
                             android:textSize="20sp" />
+
                     </LinearLayout>
 
                     <ImageButton
@@ -100,7 +101,9 @@
                         android:padding="5dp"
                         android:src="@drawable/ic_baseline_add_24" />
                 </androidx.cardview.widget.CardView>
+
             </RelativeLayout>
+
 
             <ImageView
                 android:id="@+id/img_cart_list"

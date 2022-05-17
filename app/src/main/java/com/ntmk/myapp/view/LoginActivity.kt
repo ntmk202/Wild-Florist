@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.ActivityLoginBinding
+import com.ntmk.myapp.model.User
 import com.ntmk.myapp.view_model.Listener
 import com.ntmk.myapp.view_model.Login_ViewModel
 import com.ntmk.myapp.view_model.Util.toast
@@ -27,8 +28,15 @@ open class LoginActivity : AppCompatActivity(), Listener {
         binding.btnLogin.setOnClickListener {
 //            val checkIsSuccessLogin = viewModel.onClickLogin()
 //            if (checkIsSuccessLogin) {
-                val i = Intent(this, LoadingActivity::class.java)
-                startActivity(i)
+//                val i = Intent(this, LoadingActivity::class.java)
+//                startActivity(i)
+
+                var user : User = User(1,viewModel.user_name,viewModel.email,"4")
+                val i = Intent(this, HomeActivity::class.java)
+                var mBundle : Bundle =  Bundle()
+                mBundle.putSerializable("UserLogin",user)
+                i.putExtras(mBundle)
+                this?.startActivity(i)
 //            }
         }
         binding.txtLinkSignup.setOnClickListener {

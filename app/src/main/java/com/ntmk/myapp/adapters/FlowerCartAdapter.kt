@@ -3,10 +3,7 @@ package com.ntmk.myapp.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.RelativeLayout
-import android.widget.Toast
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -27,12 +24,14 @@ class FlowerCartAdapter(var context: Context, var listFlowerCart:ArrayList<Flowe
         var txtQuantity : EditText? = null
         var btnIncreaseQuantity : ImageButton? = null
         var btnDecreaseQuantity : ImageButton? = null
+        var checkbox : CheckBox? = null
         var database : CartFirebase = CartFirebase()
         init {
             txtQuantity = v.txtQuantity
             btnRemoveFlower = v.btnRemoveFlower
             btnIncreaseQuantity = v.btnIncreaseqQuantity
             btnDecreaseQuantity = v.btnDecreaseqQuantity
+            checkbox = v.checkboxCart
             database.getDataFlowerCart()
         }
     }
@@ -69,6 +68,7 @@ class FlowerCartAdapter(var context: Context, var listFlowerCart:ArrayList<Flowe
             database.removeValue()
             Toast.makeText(mContext,"Cart updated", Toast.LENGTH_SHORT).show()
         }
+
 
     }
 

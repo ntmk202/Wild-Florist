@@ -47,6 +47,7 @@ class CartActivity : AppCompatActivity() {
                     }
 
                     binding.flowerCart.adapter = mAdapter
+
                     binding.flowerCart.adapter?.notifyDataSetChanged()
 
                 }
