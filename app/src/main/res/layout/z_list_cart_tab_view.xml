@@ -1,77 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bgr_pager"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="FlowerCart"
+            type="com.ntmk.myapp.model.FlowerCart" />
+    </data>
 
     <RelativeLayout
+        android:background="@color/bgr_pager"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="5dp">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="10dp">
+            android:layout_height="120dp"
+            android:layout_margin="5dp">
+            <CheckBox
+                android:id="@+id/txtRmAcc"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:padding="20dp"
+                android:textColor="@color/text" />
 
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cartView"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                app:cardUseCompatPadding="true">
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="10dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cartView"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="60dp"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true">
 
-                    <TextView
-                        android:id="@+id/tvCart_name"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed-medium"
-                        android:paddingBottom="10dp"
-                        android:text="Name flower"
-                        android:textSize="20sp" />
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="60dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tvCart_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="$price"
-                        android:textColor="@color/cannon_pink"
-                        android:textSize="20sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/tvCart_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed-medium"
+                            android:paddingBottom="10dp"
+                            android:text="@={FlowerCart.name}"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tvCart_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@={FlowerCart.price}"
+                            android:textColor="@color/cannon_pink"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/btn_decreaseqQuantity"
+                        android:layout_width="15dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="140dp"
+                        android:layout_marginTop="55dp"
+                        android:background="@color/white"
+                        android:padding="5dp"
+                        android:src="@drawable/remove" />
+
+                    <EditText
+                        android:id="@+id/txt_quantity"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="160dp"
+                        android:layout_marginTop="50dp"
+                        android:background="@drawable/shape_arrow"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:text="@{Integer.toString(FlowerCart.quantity)}"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:id="@+id/btn_increaseqQuantity"
+                        android:layout_width="15dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="195dp"
+                        android:layout_marginTop="55dp"
+                        android:background="@color/white"
+                        android:padding="5dp"
+                        android:src="@drawable/add" />
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/img_cart_list"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:imageUrl="@{FlowerCart.img}"
+                android:src="@drawable/list_flower" />
+
+            <ImageButton
+                android:id="@+id/btn_removeFlower"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/delete"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:background="@drawable/shape_delete" />
+
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/img_cart_list"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/list_flower" />
-
-        <ImageButton
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/delete"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:padding="10dp"
-            android:background="@drawable/shape_delete"/>
 
     </RelativeLayout>
-
-
-</RelativeLayout>
+</layout>

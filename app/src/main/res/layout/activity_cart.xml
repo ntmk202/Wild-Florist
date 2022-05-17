@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CartActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/flowerCart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        tools:itemCount="1"
+        tools:listitem="@layout/z_list_cart_tab_view"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

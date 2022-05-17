@@ -1,11 +1,14 @@
 package com.ntmk.myapp.view.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,9 +19,14 @@ import com.ntmk.myapp.adapters.CategoriesAdapter
 import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.model.ListCgrData
 import com.ntmk.myapp.adapters.ListHomeAdapter
+import com.ntmk.myapp.databinding.ActivityLoginBinding
+import com.ntmk.myapp.databinding.ZListItemHomeViewBinding
 import com.ntmk.myapp.model.Flower
 import com.ntmk.myapp.model.ListHomeData
 import com.ntmk.myapp.model.User
+import com.ntmk.myapp.view.CartActivity
+import com.ntmk.myapp.view.LoadingActivity
+import com.ntmk.myapp.view_model.Login_ViewModel
 
 class HomeFragment : Fragment() {
 
@@ -26,9 +34,11 @@ class HomeFragment : Fragment() {
     lateinit var mDatabase: DatabaseReference
     private lateinit var flowerList: ArrayList<Flower>
     private lateinit var mAdapter: ListFlowerHomeAdapter
+    private lateinit var mbinding: ZListItemHomeViewBinding
 
     // This property is only valid between onCreateView and
     // onDestroyView.
+
     private val binding get() = _binding!!
 
     //    add data list
@@ -40,20 +50,34 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
+        //mbinding = DataBindingUtil.setContentView(requireActivity(), R.layout.z_list_item_home_view)
+        mbinding =  ZListItemHomeViewBinding.inflate(inflater, container, false)
         flowerList = ArrayList()
-        mAdapter = ListFlowerHomeAdapter(flowerList)
+        mAdapter = ListFlowerHomeAdapter(requireContext(),flowerList)
+
+
         binding.listProduct.layoutManager = LinearLayoutManager(activity)
         binding.listProduct.setHasFixedSize(true)
         binding.listProduct.adapter = mAdapter
+
         getFlowerData()
 
+        mbinding.lyViewListPink.setOnClickListener {
+            println("CLICKED")
+        }
+        mbinding.txtViewList.setOnClickListener {
+            println("CLICKED!!!!")
+        }
 
+
+        binding.imgCart.setOnClickListener {
+            val i :Intent = Intent(context, CartActivity::class.java)
+            startActivity(i)
+        }
 
 //      add list
         postToListCgr()
-        postToListHome()
+//        postToListHome()
 
 //      RecycleView
         val rvCategoriesList : RecyclerView = binding.categories
@@ -65,7 +89,7 @@ class HomeFragment : Fragment() {
 
         rvHomeListItem.layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         rvHomeListItem.adapter = ListHomeAdapter(lH_data)
-
+        val root: View = binding.root
         return root
     }
     fun getFlowerData(){
@@ -78,6 +102,8 @@ class HomeFragment : Fragment() {
                         flowerList.add(flower!!)
                     }
                     binding.listProduct.adapter = mAdapter
+                    binding.listProduct.adapter?.notifyDataSetChanged()
+
                 }
             }
             override fun onCancelled(error: DatabaseError) {
@@ -103,9 +129,9 @@ class HomeFragment : Fragment() {
     }
 
     //    list item home
-    private fun postToListHome(){
-        lH_data.add(ListHomeData("Name Flower 1","$10",R.drawable.list_flower))
-        lH_data.add(ListHomeData("Name Flower 2","$16",R.drawable.list_flower))
-        lH_data.add(ListHomeData("Name Flower 3","$10",R.drawable.list_flower))
-    }
+//    private fun postToListHome(){
+//        lH_data.add(ListHomeData("Name Flower 1","$10",R.drawable.list_flower))
+//        lH_data.add(ListHomeData("Name Flower 2","$16",R.drawable.list_flower))
+//        lH_data.add(ListHomeData("Name Flower 3","$10",R.drawable.list_flower))
+//    }
 }
