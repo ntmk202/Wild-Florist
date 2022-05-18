@@ -1,12 +1,12 @@
 package com.ntmk.myapp.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -16,8 +16,6 @@ import com.ntmk.myapp.R
 import com.ntmk.myapp.adapters.FlowerCartAdapter
 import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.databinding.ActivityCartBinding
-import com.ntmk.myapp.databinding.ActivityHomeBinding
-import com.ntmk.myapp.model.Flower
 import com.ntmk.myapp.model.FlowerCart
 
 class CartActivity : AppCompatActivity() {
@@ -32,11 +30,16 @@ class CartActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         mListFlowerCart = ArrayList()
-        mAdapter = FlowerCartAdapter(this,mListFlowerCart)
+        mAdapter = FlowerCartAdapter(this, mListFlowerCart)
         binding.flowerCart.layoutManager = LinearLayoutManager(this)
         binding.flowerCart.setHasFixedSize(true)
         binding.flowerCart.adapter = mAdapter
         getFlowerData()
+
+        binding.linkBack.setOnClickListener {
+            val i = Intent(this, HomeActivity::class.java)
+            startActivity(i)
+        }
 
         binding.btnBuy.setOnClickListener{
             val v = View.inflate(this, R.layout.z_viewer_payment, null)
@@ -45,15 +48,15 @@ class CartActivity : AppCompatActivity() {
             val dialog = builder.create()
 
             v.findViewById<View>(R.id.pay_credit_card).setOnClickListener{
-                Toast.makeText(this,"Successfully created orders",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Successfully created orders", Toast.LENGTH_SHORT).show()
             }
             v.findViewById<View>(R.id.pay_in_cash).setOnClickListener{
-                Toast.makeText(this,"Successfully created orders",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Successfully created orders", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
             }
 
             dialog.show()
-            dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)
+            dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
             dialog.window?.attributes?.windowAnimations = R.style.DialogAnimation
             dialog.window?.setGravity(Gravity.BOTTOM)
@@ -61,26 +64,41 @@ class CartActivity : AppCompatActivity() {
 
 
     }
-    fun getFlowerData(){
+
+    fun getFlowerData() {
+
         mDatabase = FirebaseDatabase.getInstance().getReference("FlowerCart")
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
-                if(p0.exists()){
+                if (p0.exists()) {
                     mListFlowerCart.removeAll(mListFlowerCart)
-                    for(data in p0.children){
+                    for (data in p0.children) {
                         val flower = data.getValue(FlowerCart::class.java)
                         mListFlowerCart.add(flower!!)
                     }
-
+                    var total_Price: Int = 0
+                    for (flower in mListFlowerCart) {
+                        total_Price = total_Price + flower.quantity * getNumberPrice(flower.price)
+                    }
+                    binding.txtTotalPrice.setText("$" + total_Price.toString())
                     binding.flowerCart.adapter = mAdapter
                     binding.flowerCart.adapter?.notifyDataSetChanged()
 
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Cancel",error.toString())
+                Log.e("Cancel", error.toString())
             }
         })
+
+    }
+
+    fun getNumberPrice(string: String): Int {
+        var number: String = ""
+        number = string.replace("\$", "")
+        println(number)
+        return number.toInt()
     }
 
 

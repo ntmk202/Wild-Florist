@@ -27,7 +27,6 @@ import com.ntmk.myapp.view_model.Util.toast
 open class LoginActivity : AppCompatActivity(), Listener {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var mSignInButton: SignInButton
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var mAuth: FirebaseAuth
 

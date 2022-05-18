@@ -67,6 +67,7 @@
                         android:id="@+id/flowerCart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:paddingBottom="220dp"
                         tools:itemCount="1"
                         tools:listitem="@layout/z_list_cart_tab_view"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
@@ -98,6 +99,7 @@
                         android:gravity="center"
                         android:layout_marginBottom="10dp"/>
                     <TextView
+                        android:id="@+id/txt_TotalPrice"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="$50"
@@ -130,7 +132,7 @@
 
                     <Button
                         android:id="@+id/btn_buy"
-                        android:layout_width="230dp"
+                        android:layout_width="200dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/button"
                         android:text="Buy"
@@ -138,6 +140,7 @@
                         android:textStyle="bold" />
 
                 </LinearLayout>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
