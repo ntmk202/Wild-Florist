@@ -47,7 +47,7 @@
                 android:src="@drawable/user" />
 
             <TextView
-                android:id="@+id/user_profile"
+                android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/user_img"
@@ -62,7 +62,7 @@
                 android:id="@+id/user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/user_profile"
+                android:layout_below="@+id/user_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:text="user@gmail.com" />
@@ -155,6 +155,7 @@
 
 
             <EditText
+                android:id="@+id/txt_name"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
@@ -166,6 +167,7 @@
 
 
             <EditText
+                android:id="@+id/txt_pass"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
@@ -176,6 +178,7 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/txt_email"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
@@ -186,6 +189,7 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/txt_phone"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
@@ -197,6 +201,7 @@
                 android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/txt_address"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"

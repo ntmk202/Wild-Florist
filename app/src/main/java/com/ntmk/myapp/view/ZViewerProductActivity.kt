@@ -20,11 +20,11 @@ class ZViewerProductActivity : AppCompatActivity() {
         setContentView(binding.root)
         database.getDataFlowerCart()
 
-        var mBundle : Bundle = intent.extras!!
-        if (mBundle == null ){
+        var mBundle: Bundle = intent.extras!!
+        if (mBundle == null) {
             return
         }
-        var flower : Flower = mBundle.get("Flower") as Flower
+        var flower: Flower = mBundle.get("Flower") as Flower
         binding.viewHomeName.setText(flower.name)
         binding.viewHomePrice.setText(flower.price)
 

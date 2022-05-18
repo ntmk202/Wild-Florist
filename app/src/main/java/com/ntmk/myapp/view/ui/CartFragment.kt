@@ -18,8 +18,6 @@ class CartFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_cart,container,false)
-
-
         return binding.root
     }
 }

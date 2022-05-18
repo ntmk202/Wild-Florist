@@ -25,7 +25,7 @@
 
             <EditText
                 android:id="@+id/txtSearch"
-                android:layout_width="300dp"
+                android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:background="@drawable/shape_search"
                 android:queryBackground="@android:color/transparent"
@@ -34,6 +34,7 @@
                 android:drawablePadding="20dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
+                android:focusable="false"
                 android:layout_gravity="center_vertical"
                 android:inputType="text"
                 android:autofillHints="name"/>
@@ -176,7 +177,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="10dp"
-                                android:paddingBottom="60dp"
+                                android:paddingBottom="140dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -188,6 +189,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </LinearLayout>
+
 
                 </ScrollView>
 

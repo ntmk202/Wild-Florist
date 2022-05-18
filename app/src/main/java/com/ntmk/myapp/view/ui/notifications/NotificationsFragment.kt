@@ -18,11 +18,8 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notifications, container, false)
-
-
-
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_notifications, container, false)
         return binding.root
     }
 

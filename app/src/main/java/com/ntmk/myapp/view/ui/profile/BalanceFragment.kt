@@ -25,23 +25,16 @@ class BalanceFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_balance, container, false)
-
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.linkBack.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }
     }
-
-
-
 
 
 }

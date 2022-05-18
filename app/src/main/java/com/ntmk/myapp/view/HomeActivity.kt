@@ -10,6 +10,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.ActivityHomeBinding
+import com.ntmk.myapp.model.Flower
+import com.ntmk.myapp.model.User
 import com.ntmk.myapp.view.ui.profile.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -22,11 +24,6 @@ class HomeActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
 
-
-//        binding = ActivityHomeBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-
-
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_home)
@@ -34,7 +31,10 @@ class HomeActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_garden, R.id.navigation_notification,R.id.navigation_profile
+                R.id.navigation_home,
+                R.id.navigation_garden,
+                R.id.navigation_notification,
+                R.id.navigation_profile
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)

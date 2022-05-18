@@ -15,10 +15,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main )
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
-        Handler().postDelayed({k@
+        Handler().postDelayed({
+            k@
             startActivity(Intent(this@MainActivity, AdvertisementActivity::class.java))
             finish()
         }, 2000)

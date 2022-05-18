@@ -9,6 +9,7 @@ import com.ntmk.myapp.model.User
 
 
 class Login_ViewModel : ViewModel() {
+    var user_name: String = ""
     var email: String = ""
     var pass: String = ""
     var messageLoginEmail: ObservableField<String> = ObservableField<String>()
@@ -33,6 +34,7 @@ class Login_ViewModel : ViewModel() {
             list_user = userFirebase.getListUser()
             for (user in list_user) {
                 if (user.email.equals(email) && user.pass.equals(pass)) {
+                    user_name = user.name
                     checkInfoDatabase = true
                 }
             }

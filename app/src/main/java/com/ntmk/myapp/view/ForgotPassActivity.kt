@@ -20,7 +20,7 @@ class ForgotPassActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_forgot_pass)
 
         binding.txtLinkSignup.setOnClickListener{
-            val i= Intent(this, RegistrationActivity::class.java)
+            val i = Intent(this, RegistrationActivity::class.java)
             startActivity(i)
         }
         binding.btnBack.setOnClickListener{
