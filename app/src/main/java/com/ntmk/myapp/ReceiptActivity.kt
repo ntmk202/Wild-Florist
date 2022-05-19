@@ -1,9 +1,11 @@
 package com.ntmk.myapp
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
 import android.view.Gravity
@@ -11,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -51,22 +54,10 @@ class ReceiptActivity : AppCompatActivity() {
             val dialog = builder.create()
 
             v.findViewById<View>(R.id.btn_submit).setOnClickListener {
-                var txtNum1: EditText = v.findViewById<View>(R.id.num1) as EditText
-                var txtNum2: EditText = v.findViewById<View>(R.id.num2) as EditText
-                var txtNum3: EditText = v.findViewById<View>(R.id.num3) as EditText
-                var txtNum4: EditText = v.findViewById<View>(R.id.num4) as EditText
-                var txtNum5: EditText = v.findViewById<View>(R.id.num5) as EditText
-                var txtNum6: EditText = v.findViewById<View>(R.id.num6) as EditText
-                var num1: String = txtNum1.text.toString()
-                var num2: String = txtNum2.text.toString()
-                var num3: String = txtNum3.text.toString()
-                var num4: String = txtNum4.text.toString()
-                var num5: String = txtNum5.text.toString()
-                var num6: String = txtNum6.text.toString()
+                var txtNum: EditText = v.findViewById<View>(R.id.verifyOTP) as EditText
 
-                code(txtNum1,txtNum2,txtNum3,txtNum4,txtNum5,txtNum6)
+                var number: Int = txtNum.text.toString().toInt()
 
-                var number = (num1 + num2 + num3 + num4 + num5 + num6).toInt()
                 if (number == 456789) {
                     mDatabase.removeValue()
                     val i = Intent(this, HomeActivity::class.java)
@@ -74,12 +65,8 @@ class ReceiptActivity : AppCompatActivity() {
                     Toast.makeText(this, "Payment success", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Incorrect code", Toast.LENGTH_SHORT).show()
-                    txtNum1.setText("")
-                    txtNum2.setText("")
-                    txtNum3.setText("")
-                    txtNum4.setText("")
-                    txtNum5.setText("")
-                    txtNum6.setText("")
+                    txtNum.setText("")
+
                 }
 
 
@@ -157,23 +144,5 @@ class ReceiptActivity : AppCompatActivity() {
             }
         })
     }
-    fun code(num1 : EditText,num2 : EditText,num3 : EditText,num4 : EditText,num5 : EditText,num6 : EditText){
-        num1.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                charSequence: CharSequence,
-                i: Int, i1: Int, i2: Int
-            ) {
-            }
 
-            override fun onTextChanged(
-                charSequence: CharSequence,
-                i: Int, i1: Int, i2: Int
-            ) {
-            }
-
-            override fun afterTextChanged(editable: Editable) {
-                num2.requestFocus()
-            }
-        })
-    }
 }

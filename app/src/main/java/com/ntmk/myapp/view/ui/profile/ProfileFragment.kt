@@ -43,6 +43,7 @@ class ProfileFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         changeTextView()
+        // Chuyển giao diện về fragment Setting
         val settingFragment = SettingFragment()
         binding.linkSetting.setOnClickListener {
             fragmentManager?.beginTransaction()?.apply {
@@ -51,6 +52,7 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        // Chuyển giao diện về fragment Balance
         val balanceFragment = BalanceFragment()
         binding.linkBalance.setOnClickListener {
             fragmentManager?.beginTransaction()?.apply {
@@ -126,8 +128,6 @@ class ProfileFragment : Fragment() {
 
 
         list_user = userFirebase.getListUser()
-        var list_name: ArrayList<String> = ArrayList()
-        var list_email: ArrayList<String> = ArrayList()
         var email_beforeChange = binding.userEmail.text.toString()
         var userBeforeChange: User = User()
         for (user in list_user) {

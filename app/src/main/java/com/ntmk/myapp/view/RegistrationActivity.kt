@@ -95,7 +95,6 @@ class RegistrationActivity : AppCompatActivity() {
 
                 val profileUpdates = userProfileChangeRequest {
                     displayName = name
-
                 }
                 user!!.updateProfile(profileUpdates)
                 val i = Intent(this, LoginActivity::class.java)
