@@ -40,9 +40,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        //mbinding = DataBindingUtil.setContentView(requireActivity(), R.layout.z_list_item_home_view)
 
-        mbinding = ZListItemHomeViewBinding.inflate(inflater, container, false)
         flowerList = ArrayList()
         mAdapter = ListFlowerHomeAdapter(requireContext(), flowerList)
 
@@ -53,13 +51,6 @@ class HomeFragment : Fragment() {
         binding.listProduct.adapter = mAdapter
 
         getFlowerData()
-
-        mbinding.lyViewListPink.setOnClickListener {
-            println("CLICKED")
-        }
-        mbinding.txtViewList.setOnClickListener {
-            println("CLICKED!!!!")
-        }
 
         binding.imgCart.setOnClickListener {
             val i = Intent(requireContext(), CartActivity::class.java)

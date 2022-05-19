@@ -90,8 +90,9 @@ class RegistrationActivity : AppCompatActivity() {
         progressDialog.show()
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
+                var user = FirebaseAuth.getInstance().currentUser!!
+                user.sendEmailVerification()
                 progressDialog.dismiss()
-                val user = auth.currentUser
 
                 val profileUpdates = userProfileChangeRequest {
                     displayName = name

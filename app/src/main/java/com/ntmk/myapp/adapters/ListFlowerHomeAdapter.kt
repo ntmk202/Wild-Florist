@@ -75,7 +75,7 @@ class ListFlowerHomeAdapter(var context: Context, var flowerList: ArrayList<Flow
             }
 
             holder.database.addFlowerCart(mFlowerCart)
-            Toast.makeText(mContext, "Thêm sản phẩm thành công", Toast.LENGTH_LONG).show()
+            Toast.makeText(mContext, "Add flowers to cart successfully", Toast.LENGTH_LONG).show()
         }
     }
 
