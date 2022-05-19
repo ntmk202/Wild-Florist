@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.*
 import com.ntmk.myapp.R
+import com.ntmk.myapp.ReceiptActivity
 import com.ntmk.myapp.adapters.FlowerCartAdapter
 import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.databinding.ActivityCartBinding
@@ -49,11 +50,13 @@ class CartActivity : AppCompatActivity() {
             val dialog = builder.create()
 
             v.findViewById<View>(R.id.pay_credit_card).setOnClickListener{
-                Toast.makeText(this,"Successfully created orders", Toast.LENGTH_SHORT).show()
+                val i = Intent(this, ReceiptActivity::class.java)
+                startActivity(i)
 
             }
             v.findViewById<View>(R.id.pay_in_cash).setOnClickListener{
-                Toast.makeText(this,"Successfully created orders", Toast.LENGTH_SHORT).show()
+                val i = Intent(this, ReceiptActivity::class.java)
+                startActivity(i)
                 dialog.dismiss()
             }
 
@@ -68,7 +71,6 @@ class CartActivity : AppCompatActivity() {
     }
 
     fun getFlowerData() {
-
         mDatabase = FirebaseDatabase.getInstance().getReference("FlowerCart")
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {

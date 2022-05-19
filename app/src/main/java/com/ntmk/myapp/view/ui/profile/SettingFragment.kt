@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.google.firebase.auth.FirebaseAuth
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.FragmentProfileBinding
 import com.ntmk.myapp.databinding.FragmentSettingBinding
@@ -29,6 +31,17 @@ class SettingFragment : Fragment() {
 
         binding.linkBack.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
+        }
+        binding.btbDeleteAcc.setOnClickListener {
+            var userAuth = FirebaseAuth.getInstance().currentUser
+            if (userAuth != null) {
+                userAuth.delete()
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(requireContext(), "User account deleted.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
         }
     }
 }

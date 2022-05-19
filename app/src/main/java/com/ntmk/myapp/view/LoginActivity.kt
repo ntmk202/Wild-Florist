@@ -72,6 +72,7 @@ open class LoginActivity : AppCompatActivity() {
                     Toast.makeText(baseContext, "Login succes.", Toast.LENGTH_SHORT).show()
 
                 } else {
+                    progressDialog.dismiss()
                     Toast.makeText(baseContext, "Login failed.", Toast.LENGTH_SHORT).show()
                 }
             }

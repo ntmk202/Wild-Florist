@@ -244,6 +244,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/btb_delete_acc"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
                 android:padding="20dp"
@@ -252,10 +253,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/cl_evaluate">
 
                 <TextView
-                    android:id="@+id/tv_delete_acc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textColor="@color/black"
+                    android:focusable="false"
                     android:text="Request account deletion"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"

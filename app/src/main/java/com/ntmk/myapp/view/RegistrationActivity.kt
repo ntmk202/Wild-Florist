@@ -78,6 +78,8 @@ class RegistrationActivity : AppCompatActivity() {
                 }else{
                     id = list_user.get(list_user.size - 1).id + 1
                 }
+                var user = User(id, name, email,pass)
+                userFirebase.addUser(user)
                 sendDataAuth(name,email, pass)
 
             }

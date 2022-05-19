@@ -6,12 +6,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.FragmentHomeBinding
@@ -21,8 +18,6 @@ import com.ntmk.myapp.model.ListCgrData
 import com.ntmk.myapp.databinding.ZListItemHomeViewBinding
 import com.ntmk.myapp.model.Flower
 import com.ntmk.myapp.view.CartActivity
-import com.ntmk.myapp.view.ui.CartFragment
-import com.ntmk.myapp.view.ui.profile.BalanceFragment
 
 class HomeFragment : Fragment() {
 
@@ -67,11 +62,8 @@ class HomeFragment : Fragment() {
         }
 
         binding.imgCart.setOnClickListener {
-            val cartFragment = CartFragment()
-            fragmentManager?.beginTransaction()?.apply {
-                replace(R.id.nav_home, cartFragment, CartFragment::class.java.simpleName)
-                    .addToBackStack(null).commit()
-            }
+            val i = Intent(requireContext(), CartActivity::class.java)
+            startActivity(i)
         }
 
 //      add list

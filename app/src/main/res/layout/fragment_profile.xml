@@ -145,7 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
             android:orientation="vertical"
             android:padding="20dp"
@@ -158,24 +158,12 @@
                 android:id="@+id/txt_name"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/shape_arrow"
                 android:drawableStart="@drawable/user_name"
                 android:drawablePadding="20dp"
                 android:hint="Name"
                 android:textSize="18sp" />
 
-
-            <EditText
-                android:id="@+id/txt_pass"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/shape_arrow"
-                android:drawableStart="@drawable/secure"
-                android:drawablePadding="20dp"
-                android:hint="Pass"
-                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/txt_email"
@@ -215,9 +203,24 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_Confirm"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button"
+            android:text="Confirm"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/btn_logout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+        <Button
             android:id="@+id/btn_logout"
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="160dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
             android:text="Log out"

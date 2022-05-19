@@ -32,11 +32,8 @@ class UserFirebase {
 
     }
     fun addUser(user : User){
-        database.child(user.id.toString()).setValue(user).addOnSuccessListener {
-            //Toast.makeText(this, "Registration success", Toast.LENGTH_SHORT).show()
-        }.addOnCanceledListener {
-            //Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show()
-        }
+        database.child(user.id.toString()).setValue(user)
+
 
     }
 
