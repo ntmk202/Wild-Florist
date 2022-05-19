@@ -17,6 +17,7 @@ import com.ntmk.myapp.adapters.FlowerCartAdapter
 import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.databinding.ActivityCartBinding
 import com.ntmk.myapp.model.FlowerCart
+import com.ntmk.myapp.view.ui.profile.BalanceFragment
 
 class CartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCartBinding
@@ -49,6 +50,7 @@ class CartActivity : AppCompatActivity() {
 
             v.findViewById<View>(R.id.pay_credit_card).setOnClickListener{
                 Toast.makeText(this,"Successfully created orders", Toast.LENGTH_SHORT).show()
+
             }
             v.findViewById<View>(R.id.pay_in_cash).setOnClickListener{
                 Toast.makeText(this,"Successfully created orders", Toast.LENGTH_SHORT).show()

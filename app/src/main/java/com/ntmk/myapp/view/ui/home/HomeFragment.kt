@@ -21,6 +21,8 @@ import com.ntmk.myapp.model.ListCgrData
 import com.ntmk.myapp.databinding.ZListItemHomeViewBinding
 import com.ntmk.myapp.model.Flower
 import com.ntmk.myapp.view.CartActivity
+import com.ntmk.myapp.view.ui.CartFragment
+import com.ntmk.myapp.view.ui.profile.BalanceFragment
 
 class HomeFragment : Fragment() {
 
@@ -65,8 +67,11 @@ class HomeFragment : Fragment() {
         }
 
         binding.imgCart.setOnClickListener {
-            val i = Intent(context, CartActivity::class.java)
-            startActivity(i)
+            val cartFragment = CartFragment()
+            fragmentManager?.beginTransaction()?.apply {
+                replace(R.id.nav_home, cartFragment, CartFragment::class.java.simpleName)
+                    .addToBackStack(null).commit()
+            }
         }
 
 //      add list

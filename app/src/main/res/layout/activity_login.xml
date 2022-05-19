@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="Loginn"
-            type="com.ntmk.myapp.view_model.Login_ViewModel" />
-    </data>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -85,9 +79,7 @@
                     android:drawablePadding="10dp"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
-                    android:onTextChanged="@{()-> Loginn.onChangedTextEmail()}"
                     android:padding="15dp"
-                    android:text="@={Loginn.email}"
                     android:textColor="@color/txtActionBar"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -99,7 +91,6 @@
                 android:layout_gravity="start"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="5dp"
-                android:text="@={Loginn.messageLoginEmail}"
                 android:textColor="@color/color_note"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -121,9 +112,7 @@
                     android:drawablePadding="10dp"
                     android:hint="@string/pass"
                     android:inputType="textPassword"
-                    android:onTextChanged="@{()-> Loginn.onChangedTextPass()}"
                     android:padding="15dp"
-                    android:text="@={Loginn.pass}"
                     android:textColor="@color/txtActionBar"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -135,7 +124,6 @@
                 android:layout_gravity="start"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="5dp"
-                android:text="@={Loginn.messageLoginPass}"
                 android:textColor="@color/color_note"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -163,7 +151,6 @@
                 android:textColorLink="#F3C5C5"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-            <!--            android:onClick="@{()-> Loginn.onClickLogin()}"-->
             <TextView
                 android:id="@+id/txtLink_signup"
                 android:layout_width="wrap_content"

@@ -11,17 +11,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/shape_verify"
         android:gravity="center_horizontal"
-        android:background="@color/bgr_color"
         android:orientation="vertical"
-        android:padding="50dp">
+        android:paddingLeft="50dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"
+        android:paddingRight="50dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="Verify Email"
+            android:text="Verify Phone"
             android:textColor="@color/text"
             android:textSize="30sp" />
 
@@ -30,42 +33,54 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-condensed"
-            android:text="Enter The Verification Code We Just Send You On Your Email"
-            android:textColor="@color/txt_unselected"
             android:gravity="center"
             android:padding="10dp"
+            android:text="Enter The Verification Code We Just Send You On Your Phone"
+            android:textColor="@color/txt_unselected"
             android:textSize="18sp" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
             <EditText
+                android:id="@+id/num1"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"/>
+                android:gravity="center" />
+
             <EditText
+                android:id="@+id/num2"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"/>
+                android:gravity="center" />
+
             <EditText
+                android:id="@+id/num3"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"/>
+                android:gravity="center" />
+
             <EditText
+                android:id="@+id/num4"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"/>
+                android:gravity="center" />
+
             <EditText
+                android:id="@+id/num5"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"/>
+                android:gravity="center" />
+
             <EditText
+                android:id="@+id/num6"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"/>
+                android:gravity="center" />
         </LinearLayout>
 
 
@@ -73,7 +88,7 @@
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/button"
             android:padding="10dp"
             android:text="Submit"
