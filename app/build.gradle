@@ -98,7 +98,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
 
-
+    implementation 'io.github.chaosleung:pinview:1.4.4'
 
 
 
