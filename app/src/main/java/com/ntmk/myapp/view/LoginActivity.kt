@@ -63,8 +63,12 @@ open class LoginActivity : AppCompatActivity() {
     fun sendDataAuth(email:String , pass : String){
         var auth = FirebaseAuth.getInstance()
         progressDialog.show()
+        if(auth == null){
+            println("NULL")
+        }
         auth.signInWithEmailAndPassword(email, pass)
             .addOnCompleteListener(this) { task ->
+                println()
                 if (task.isSuccessful) {
                     progressDialog.dismiss()
                     val i = Intent(this, HomeActivity::class.java)
