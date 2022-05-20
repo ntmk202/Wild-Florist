@@ -72,7 +72,7 @@ class ReceiptActivity : AppCompatActivity() {
 
 
         binding.btnConfirm.setOnClickListener {
-            var phone : String = "+84976141872"
+            var phone : String = "+84326435265"
             startPhoneNumberVerification(phone)
 //            var userAuth = mAuth.currentUser
 //            var database = FirebaseDatabase.getInstance().getReference("Users")
@@ -113,7 +113,7 @@ class ReceiptActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             v.findViewById<View>(R.id.btn_resend).setOnClickListener {
-                var phone : String = "+84976141872".toString().trim()
+                var phone : String = "+84326435265"
                 resendPhoneNumberVerification(phone,forceResendingToken!!)
             }
 
@@ -133,6 +133,7 @@ class ReceiptActivity : AppCompatActivity() {
 
     fun init(){
         firebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth.getFirebaseAuthSettings().setAppVerificationDisabledForTesting(true)
         progressDialog = ProgressDialog(this)
         getAddressUser()
 
@@ -143,6 +144,7 @@ class ReceiptActivity : AppCompatActivity() {
             }
             override fun onVerificationFailed(e: FirebaseException) {
                 println("FAILED")
+                println(e.message)
                 progressDialog.dismiss()
                 Toast.makeText(applicationContext, "${e.message}", Toast.LENGTH_SHORT).show()
             }
