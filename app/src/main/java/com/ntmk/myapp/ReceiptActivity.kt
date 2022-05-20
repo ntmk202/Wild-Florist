@@ -72,7 +72,7 @@ class ReceiptActivity : AppCompatActivity() {
 
 
         binding.btnConfirm.setOnClickListener {
-            var phone : String = "+84396090576"
+            var phone : String = "+84976141872"
             startPhoneNumberVerification(phone)
 //            var userAuth = mAuth.currentUser
 //            var database = FirebaseDatabase.getInstance().getReference("Users")
@@ -113,7 +113,7 @@ class ReceiptActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             v.findViewById<View>(R.id.btn_resend).setOnClickListener {
-                var phone : String = "+84396090576".toString().trim()
+                var phone : String = "+84976141872".toString().trim()
                 resendPhoneNumberVerification(phone,forceResendingToken!!)
             }
 
