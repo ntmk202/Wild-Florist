@@ -7,18 +7,13 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.*
 import com.ntmk.myapp.R
-import com.ntmk.myapp.ReceiptActivity
 import com.ntmk.myapp.adapters.FlowerCartAdapter
-import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
 import com.ntmk.myapp.databinding.ActivityCartBinding
 import com.ntmk.myapp.model.FlowerCart
-import com.ntmk.myapp.view.ui.profile.BalanceFragment
 
 class CartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCartBinding

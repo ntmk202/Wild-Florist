@@ -1,43 +1,26 @@
-package com.ntmk.myapp
+package com.ntmk.myapp.view
 
 import android.app.ProgressDialog
 import android.content.ContentValues.TAG
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.InputType
-import android.text.TextWatcher
 import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chaos.view.PinView
-import com.google.firebase.FirebaseApp
-import com.google.firebase.FirebaseApp.initializeApp
 import com.google.firebase.FirebaseException
-import com.google.firebase.FirebaseTooManyRequestsException
-import com.google.firebase.appcheck.FirebaseAppCheck
-import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.auth.*
 import com.google.firebase.database.*
-import com.google.firebase.FirebaseApp.initializeApp
-import com.ntmk.myapp.adapters.FlowerCartAdapter
+import com.ntmk.myapp.R
 import com.ntmk.myapp.adapters.ReceiptAdapter
-import com.ntmk.myapp.databinding.ActivityCartBinding
 import com.ntmk.myapp.databinding.ActivityReceiptBinding
 import com.ntmk.myapp.model.FlowerCart
 import com.ntmk.myapp.model.User
-import com.ntmk.myapp.view.CartActivity
-import com.ntmk.myapp.view.ForgotPassActivity
-import com.ntmk.myapp.view.HomeActivity
-import com.ntmk.myapp.view.ui.profile.BalanceFragment
 import java.util.concurrent.TimeUnit
 
 class ReceiptActivity : AppCompatActivity() {
@@ -97,7 +80,8 @@ class ReceiptActivity : AppCompatActivity() {
                         println("Phone : " + phoneNumber)
 
                         // Show dialog
-                        val v = View.inflate(this@ReceiptActivity, R.layout.verify_email_fragment, null)
+                        val v = View.inflate(this@ReceiptActivity,
+                            R.layout.verify_email_fragment, null)
                         val builder = AlertDialog.Builder(this@ReceiptActivity)
                         builder.setView(v)
                         val dialog = builder.create()
