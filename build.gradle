@@ -3,8 +3,7 @@
 buildscript {
     repositories {
         // Check that you have the following line (if not, add it):
-        google () // Google's Maven repository
-
+        google () // Google's Maven repositor
     }
     dependencies {
         // Add this line

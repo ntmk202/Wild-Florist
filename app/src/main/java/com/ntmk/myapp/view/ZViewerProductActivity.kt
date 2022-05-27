@@ -70,7 +70,7 @@ class ZViewerProductActivity : AppCompatActivity() {
             }
 
             database.addFlowerCart(mFlowerCart)
-            Toast.makeText(this,"Thêm sản phẩm thành công", Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Add flowers to cart successfully", Toast.LENGTH_LONG).show()
         }
         binding.btnDecreaseqQuantity.setOnClickListener {
             if(binding.txtQuantity.text.toString().toInt()>1) {

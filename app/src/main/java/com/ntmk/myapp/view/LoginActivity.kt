@@ -7,6 +7,8 @@ import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Patterns
+import android.view.MotionEvent
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -34,6 +36,12 @@ open class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             onClickLogin()
         }
+//        binding.lytStart.setOnHoverListener
+//        binding.txtEmail.setOnFocusChangeListener { view, b ->
+//            if(binding.txtEmail.isFocusable){
+//                println("txtEmail")
+//            }
+//        }
         binding.txtLinkSignup.setOnClickListener {
             val i = Intent(this, RegistrationActivity::class.java)
             startActivity(i)
@@ -62,7 +70,6 @@ open class LoginActivity : AppCompatActivity() {
     }
     fun sendDataAuth(email:String , pass : String){
         var auth = FirebaseAuth.getInstance()
-        progressDialog.show()
         if(auth == null){
             println("NULL")
         }
@@ -90,6 +97,8 @@ open class LoginActivity : AppCompatActivity() {
             binding.txtMessageEmail.setText(checkEmail)
             binding.txtMessagePass.setText(checkPass)
         } else {
+            progressDialog.setTitle("Logged in ...")
+            progressDialog.show()
             sendDataAuth(email, pass)
         }
     }

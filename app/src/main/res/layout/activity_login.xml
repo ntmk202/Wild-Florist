@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bgr2"
@@ -151,6 +152,7 @@
                 android:textColorLink="#F3C5C5"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txtLink_signup"
                 android:layout_width="wrap_content"
