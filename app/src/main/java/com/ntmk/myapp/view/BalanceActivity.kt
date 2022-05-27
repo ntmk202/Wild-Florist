@@ -1,11 +1,10 @@
-package com.ntmk.myapp
+package com.ntmk.myapp.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.ActivityBalanceBinding
-import com.ntmk.myapp.databinding.ActivityHomeBinding
-import com.ntmk.myapp.view.HomeActivity
 
 class BalanceActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBalanceBinding

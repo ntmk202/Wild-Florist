@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/bgr_color"
+        android:background="@drawable/shape_verify"
         android:gravity="center">
 
         <LinearLayout
@@ -34,7 +34,7 @@
                     android:text="Payment by credit card"
                     android:gravity="center"
                     android:textSize="20sp"
-                    android:textColor="@color/cafe"/>
+                    android:textColor="@color/carissma"/>
             </LinearLayout>
 
             <View
@@ -59,7 +59,7 @@
                     android:text="Payment in cash"
                     android:gravity="center"
                     android:textSize="20sp"
-                    android:textColor="@color/cafe"/>
+                    android:textColor="@color/carissma"/>
             </LinearLayout>
 
 

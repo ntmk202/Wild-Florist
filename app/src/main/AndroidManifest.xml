@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
         <activity
-            android:name=".ReceiptActivity"
+            android:name=".view.ReceiptActivity"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -39,7 +39,7 @@
             android:value="@string/facebook_client_token" />
 
         <activity
-            android:name=".BalanceActivity"
+            android:name=".view.BalanceActivity"
             android:exported="false" />
         <activity
             android:name=".view.CartActivity"
