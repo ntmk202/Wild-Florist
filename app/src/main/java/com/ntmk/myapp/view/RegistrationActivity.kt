@@ -2,14 +2,12 @@ package com.ntmk.myapp.view
 
 import android.app.ProgressDialog
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Patterns
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.google.firebase.auth.FirebaseAuth
@@ -26,90 +24,123 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegistrationBinding
     private lateinit var progressDialog : ProgressDialog
     private var list_user: ArrayList<User> = ArrayList()
+    private lateinit var auth : FirebaseAuth
+    private lateinit var database: DatabaseReference
     var userFirebase: UserFirebase = UserFirebase()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_registration)
         init()
 
         binding.btnSignup.setOnClickListener {
-            onClickRegister()
+            register()
         }
 
         binding.txtLinkLogin.setOnClickListener {
             val i = Intent(applicationContext, LoginActivity::class.java)
             startActivity(i)
         }
+
         onChangedText()
     }
-    fun init(){
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_registration)
+    private fun init(){
         progressDialog  = ProgressDialog(this)
         userFirebase.getData()
+        database = FirebaseDatabase.getInstance().getReference("Users")
+        auth =  FirebaseAuth.getInstance()
     }
 
-    fun onClickRegister(){
+    private fun register(){
         var name : String = binding.txtNameRegis.text.toString()
         var email : String = binding.txtEmailRegis.text.toString()
         var pass : String = binding.txtPassRegis.text.toString()
+
         var checkName: String = checkName(name)
         var checkEmail: String = checkEmail(email)
         var checkPass: String = checkPass(pass)
+
         if (!checkEmail.equals("") || !checkPass.equals("") || !checkName.equals("")) {
-            binding.txtMessageName.setText(checkName)
-            binding.txtMessageEmail.setText(checkEmail)
-            binding.txtMessagePass.setText(checkPass)
+            binding.txtMessageName.text = checkName
+            binding.txtMessageEmail.text = checkEmail
+            binding.txtMessagePass.text = checkPass
+
         } else if (!binding.checkboxRobot.isChecked) {
-            binding.txtMessagePass.setText("You are a robot ?")
+            binding.txtMessagePass.setText("Are you a robot?")
         } else {
+
             list_user = userFirebase.getListUser()
             var list_name: ArrayList<String> = ArrayList()
             var list_email: ArrayList<String> = ArrayList()
             for (user in list_user) {
-                list_name.add(user.name)
-                list_email.add(user.email)
+                list_name.add(user.name!!)
+                list_email.add(user.email!!)
             }
-            if (name in list_name) {
-                Toast.makeText(this,"Name already exists", Toast.LENGTH_SHORT).show()
-            } else if (email in list_email) {
-                Toast.makeText(this,"Email already exists", Toast.LENGTH_SHORT).show()
-            } else {
-                var id : Int = 0
-                if(list_user.size == 0){
-                    id = 0
-                }else{
-                    id = list_user.get(list_user.size - 1).id + 1
-                }
-                var user = User(id, name, email,pass)
-                userFirebase.addUser(user)
-                progressDialog.setTitle("Registering ...")
-                progressDialog.show()
-                sendDataAuth(name,email, pass)
 
+            when {
+
+                name in list_name -> {
+                    Toast.makeText(this,"Name already exists", Toast.LENGTH_SHORT).show()
+                }
+                email in list_email -> {
+                    Toast.makeText(this,"Email already exists", Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+        //                val userId = cou
+        //                var userId : Int = 0
+        //                if(list_user.size == 0){
+        //                    userId = randomId
+        //                }else{
+        //                    userId = list_user.get(list_user.size - 1).userId + randomId
+        //                }
+                    progressDialog.setTitle("Registering ...")
+                    progressDialog.show()
+
+                    sendDataAuth(name, email, pass)
+
+                }
             }
         }
     }
-    fun sendDataAuth(name : String , email:String , pass : String){
-        var auth = FirebaseAuth.getInstance()
+
+    private fun sendDataAuth(name : String , email:String , pass : String){
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
-                var user = FirebaseAuth.getInstance().currentUser!!
-                user.sendEmailVerification()
+                var currentUser = FirebaseAuth.getInstance().currentUser!!
+                currentUser.sendEmailVerification()
                 progressDialog.dismiss()
 
                 val profileUpdates = userProfileChangeRequest {
                     displayName = name
                 }
-                user!!.updateProfile(profileUpdates)
+
+                currentUser!!.updateProfile(profileUpdates)
+
+                // add data
+                val user = User(name, email, pass,"","")
+//                val currentUSerDb = database?.child((currentUser?.uid!!))
+
+
+                database.child((currentUser?.uid!!)).setValue(user)
+//                currentUSerDb?.child("name")?.setValue(binding.txtNameRegis.text.toString())
+//                currentUSerDb?.child("email")?.setValue(binding.txtEmailRegis.text.toString())
+//                currentUSerDb?.child("pass")?.setValue(binding.txtPassRegis.text.toString())
+//                currentUSerDb?.child("phone")?.setValue(null)
+//                currentUSerDb?.child("address")?.setValue(null)
+
+                progressDialog.dismiss()
+
                 val i = Intent(this, LoginActivity::class.java)
                 startActivity(i)
-                Toast.makeText(this,"SignUp Success", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(this,"Registration Success", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this,"SignUp Failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Registration Failed", Toast.LENGTH_SHORT).show()
             }
         }
     }
-    fun onChangedText(){
+
+    private fun onChangedText(){
         binding.txtNameRegis.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 charSequence: CharSequence,
@@ -123,9 +154,10 @@ class RegistrationActivity : AppCompatActivity() {
             override fun afterTextChanged(editable: Editable) {
                 var name : String = binding.txtNameRegis.text.toString()
                 var checkName: String = checkName(name)
-                binding.txtMessageName.setText(checkName)
+                binding.txtMessageName.text = checkName
             }
         })
+
         binding.txtEmailRegis.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 charSequence: CharSequence,
@@ -139,9 +171,10 @@ class RegistrationActivity : AppCompatActivity() {
             override fun afterTextChanged(editable: Editable) {
                 var Email : String = binding.txtEmailRegis.text.toString()
                 var checkEmail: String = checkEmail(Email)
-                binding.txtMessageEmail.setText(checkEmail)
+                binding.txtMessageEmail.text = checkEmail
             }
         })
+
         binding.txtPassRegis.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 charSequence: CharSequence,
@@ -155,17 +188,18 @@ class RegistrationActivity : AppCompatActivity() {
             override fun afterTextChanged(editable: Editable) {
                 var Pass : String = binding.txtPassRegis.text.toString()
                 var checkPass: String = checkPass(Pass)
-                binding.txtMessagePass.setText(checkPass)
+                binding.txtMessagePass.text = checkPass
             }
         })
+
         binding.checkboxRobot.setOnClickListener {
             if(binding.checkboxRobot.isChecked){
-                binding.txtMessagePass.setText("")
+                binding.txtMessagePass.text = ""
             }
         }
     }
 
-    fun checkName(name: String): String {
+    private fun checkName(name: String): String {
         var result: String = ""
         if (name.length < 3) {
             result = "Name length greater than 3 characters"
@@ -173,7 +207,7 @@ class RegistrationActivity : AppCompatActivity() {
         return result
     }
 
-    fun checkEmail(email: String): String {
+    private fun checkEmail(email: String): String {
         var result: String = ""
         if (TextUtils.isEmpty(email)) {
             result = "Email cannot be empty"
@@ -183,7 +217,7 @@ class RegistrationActivity : AppCompatActivity() {
         return result
     }
 
-    fun checkPass(pass: String): String {
+    private fun checkPass(pass: String): String {
         var result: String = ""
         if (TextUtils.isEmpty(pass)) {
             result = "Password cannot be empty"

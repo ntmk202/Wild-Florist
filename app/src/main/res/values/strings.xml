@@ -44,6 +44,11 @@
     <string name="facebook_app_id">1234</string>
     <string name="fb_login_protocol_scheme">fb1234</string>
     <string name="facebook_client_token">56789</string>
+    <string name="txt_create_pass">Please enter your email to receive an OTP to create a new password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="confirm">Confirm</string>
+    <string name="back">Back</string>
+    <string name="verify_phone">Verify Phone</string>
 
 
 </resources>
