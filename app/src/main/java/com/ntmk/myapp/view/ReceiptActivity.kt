@@ -1,4 +1,4 @@
-package com.ntmk.myapp
+package com.ntmk.myapp.view
 
 import android.app.ProgressDialog
 import android.content.ContentValues.TAG
@@ -19,25 +19,15 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chaos.view.PinView
-import com.google.firebase.FirebaseApp
-import com.google.firebase.FirebaseApp.initializeApp
 import com.google.firebase.FirebaseException
-import com.google.firebase.FirebaseTooManyRequestsException
-import com.google.firebase.appcheck.FirebaseAppCheck
-import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.auth.*
 import com.google.firebase.database.*
-import com.google.firebase.FirebaseApp.initializeApp
-import com.ntmk.myapp.adapters.FlowerCartAdapter
+import com.ntmk.myapp.R
 import com.ntmk.myapp.adapters.ReceiptAdapter
-import com.ntmk.myapp.databinding.ActivityCartBinding
 import com.ntmk.myapp.databinding.ActivityReceiptBinding
 import com.ntmk.myapp.model.FlowerCart
 import com.ntmk.myapp.model.User
-import com.ntmk.myapp.view.CartActivity
-import com.ntmk.myapp.view.ForgotPassActivity
 import com.ntmk.myapp.view.HomeActivity
-import com.ntmk.myapp.view.ui.profile.BalanceFragment
 import java.util.concurrent.TimeUnit
 
 class ReceiptActivity : AppCompatActivity() {
@@ -79,8 +69,10 @@ class ReceiptActivity : AppCompatActivity() {
 
         binding.btnConfirm.setOnClickListener {
             var userAuth = firebaseAuth.currentUser
+            phoneNumber = userAuth?.phoneNumber.toString()
             var database = FirebaseDatabase.getInstance().getReference("Users")
             var list_user = ArrayList<User>()
+
             database.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     for (data in p0.children) {
@@ -92,6 +84,7 @@ class ReceiptActivity : AppCompatActivity() {
                             phoneNumber = user.phone.toString()
                         }
                     }
+
                     if (!phoneNumber.equals("")) {
                         phoneNumber = "+84" + phoneNumber.toInt()
                         println("Phone : " + phoneNumber)
@@ -108,6 +101,7 @@ class ReceiptActivity : AppCompatActivity() {
                             sendOtpCode(mVerificationId!!, number)
                             dialog.dismiss()
                         }
+
                         v.findViewById<View>(R.id.btn_resend).setOnClickListener {
                             if (!phoneNumber.equals("")) {
                                 resendPhoneNumberVerification(phoneNumber, forceResendingToken!!)
@@ -121,6 +115,7 @@ class ReceiptActivity : AppCompatActivity() {
                             ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT,
                         )
+
                         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
                         dialog.window?.attributes?.windowAnimations = R.style.DialogAnimation
                         dialog.window?.setGravity(Gravity.BOTTOM)
@@ -139,14 +134,14 @@ class ReceiptActivity : AppCompatActivity() {
         }
     }
 
-    fun init() {
+    private fun init() {
         firebaseAuth = FirebaseAuth.getInstance()
         progressDialog = ProgressDialog(this)
         getAddressUser()
 
         mCallBacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-                println("SUCCES")
+                println("SUCCESS")
                 Log.d(TAG, "onVerificationCompleted:$credential")
             }
 

@@ -45,7 +45,7 @@
             android:paddingEnd="20dp"
             android:text="@string/wild_florist"
             android:textColor="@color/text"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:transitionName="logo_txt" />
     </LinearLayout>
@@ -63,27 +63,27 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="Reset Password"
+            android:text="@string/reset_password"
             android:textColor="@color/text"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-condensed"
-            android:text="Please enter your email to receive an OTP to create a new password "
+            android:text="@string/txt_create_pass"
             android:textColor="@color/txt_unselected"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtEmail_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="20dp"
             android:textColorHint="@color/color_hint">
 
@@ -99,9 +99,8 @@
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:padding="15dp"
-                android:textColor="@color/clr_title"
-                android:textColorHint="@color/color_hint"
-                android:textSize="20sp" />
+                android:textColor="@color/txtActionBar"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -112,9 +111,9 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/button"
             android:padding="10dp"
-            android:text="Confirm"
+            android:text="@string/confirm"
             android:textColorLink="#F3C5C5"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <Button
@@ -124,9 +123,9 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/button"
             android:padding="10dp"
-            android:text="Back"
+            android:text="@string/back"
             android:textColorLink="#F3C5C5"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -138,7 +137,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="@string/create_new_account"
             android:textColor="@color/txt_title"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
 
     </LinearLayout>

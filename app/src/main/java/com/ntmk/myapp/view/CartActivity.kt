@@ -62,7 +62,6 @@ class CartActivity : AppCompatActivity() {
             dialog.window?.setGravity(Gravity.BOTTOM)
         }
 
-
     }
 
     fun getFlowerData() {

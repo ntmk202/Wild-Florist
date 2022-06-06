@@ -24,9 +24,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="Verify Phone"
+            android:text="@string/verify_phone"
             android:textColor="@color/text"
-            android:textSize="30sp"/>
+            android:textSize="25sp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -95,7 +95,7 @@
             android:layout_marginEnd="20dp"
             android:text="Submit"
             android:textColorLink="#F3C5C5"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
 

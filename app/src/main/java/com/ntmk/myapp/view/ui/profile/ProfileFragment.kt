@@ -19,9 +19,8 @@ import com.google.firebase.database.ValueEventListener
 import com.ntmk.myapp.R
 import com.ntmk.myapp.controller.UserFirebase
 import com.ntmk.myapp.databinding.FragmentProfileBinding
-import com.ntmk.myapp.model.User
 import com.ntmk.myapp.view.LoginActivity
-import com.ntmk.myapp.view.RegistrationActivity
+import com.ntmk.myapp.model.User as User
 
 class ProfileFragment : Fragment() {
 
@@ -29,19 +28,20 @@ class ProfileFragment : Fragment() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mFirebaseuser: FirebaseUser
     private var list_user: ArrayList<User> = ArrayList()
-    var userFirebase: UserFirebase = UserFirebase()
+    private var userFirebase: UserFirebase = UserFirebase()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+
         mAuth = FirebaseAuth.getInstance()
         mFirebaseuser = mAuth.currentUser!!
         userFirebase.getData()
 
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         changeTextView()
         // Chuyển giao diện về fragment Setting
         val settingFragment = SettingFragment()
@@ -74,26 +74,26 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-    fun changeTextView() {
+    private fun changeTextView() {
         //Show info
         mFirebaseuser = mAuth.currentUser!!
-        var nameAuth: String = mFirebaseuser?.displayName.toString()
-        var emailAuth: String = mFirebaseuser?.email.toString()
-        binding.userName.setText(nameAuth)
+        val nameAuth: String = mFirebaseuser.displayName.toString()
+        val emailAuth: String = mFirebaseuser.email.toString()
+        binding.userName.text = nameAuth
         binding.txtName.setText(nameAuth)
-        binding.userEmail.setText(emailAuth)
+        binding.userEmail.text = emailAuth
         binding.txtEmail.setText(emailAuth)
 
-        var database = FirebaseDatabase.getInstance().getReference("Users")
-        var list_user = ArrayList<User>()
+        val database = FirebaseDatabase.getInstance().getReference("Users")
+        val list_user = ArrayList<User>()
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 for (data in p0.children){
-                    var user = data.getValue(User::class.java)
+                    val user = data.getValue(User::class.java)
                     list_user.add(user as User)
                 }
                 for(user in list_user){
-                    if(user.email.equals(emailAuth)){
+                    if(user.email == emailAuth){
                         binding.txtPhone.setText(user.phone)
                         binding.txtAddress.setText(user.address)
                     }
@@ -106,38 +106,37 @@ class ProfileFragment : Fragment() {
 
     }
 
-    fun onClick() {
+    private fun onClick() {
         //Change data
-        var name = binding.txtName.text.toString()
-        var email = binding.txtEmail.text.toString()
-        var phone = binding.txtPhone.text.toString()
-        var address = binding.txtAddress.text.toString()
+        val name = binding.txtName.text.toString()
+        val email = binding.txtEmail.text.toString()
+        val phone = binding.txtPhone.text.toString()
+        val address = binding.txtAddress.text.toString()
 
-
+        // Update name authen
         val profileUpdates = userProfileChangeRequest {
             displayName = name
         }
         mFirebaseuser.updateProfile(profileUpdates)
-        mFirebaseuser!!.updateEmail(email).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Toast.makeText(requireContext(), "email changed Succes", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(requireContext(), "Email changed Failed", Toast.LENGTH_SHORT).show()
-            }
-        }
 
+        // Update email authen
+        mFirebaseuser.updateEmail(email)
 
+        // Update phone and address realtime
         list_user = userFirebase.getListUser()
-        var email_beforeChange = binding.userEmail.text.toString()
-        var userBeforeChange: User = User()
+        val email_beforeChange = binding.userEmail.text.toString()
+        var userBeforeChange = User()
+
         for (user in list_user) {
-            if (email_beforeChange.equals(user.email)) {
+            if (email_beforeChange == user.email) {
                 userBeforeChange = user
                 break
             }
         }
-        var user = User(userBeforeChange.id, name, email, userBeforeChange.pass, phone, address)
+
+        val user = User(name, email, userBeforeChange.pass, phone, address)
         userFirebase.addUser(user)
+        Toast.makeText(context,"Update success",Toast.LENGTH_SHORT).show()
         changeTextView()
     }
 }
