@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_blog"
-        android:icon="@drawable/ic_launcher_gardening"
+        android:icon="@drawable/ic_launcher_blog"
         android:title="Blog" />
 
     <item

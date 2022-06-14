@@ -1,24 +1,23 @@
 package com.ntmk.myapp.view.ui
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.*
 import com.ntmk.myapp.R
-import com.ntmk.myapp.databinding.FragmentHomeBinding
 import com.ntmk.myapp.adapters.CategoriesAdapter
 import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
-import com.ntmk.myapp.databinding.FragmentBlogBinding
-import com.ntmk.myapp.model.ListCgrData
-import com.ntmk.myapp.databinding.ZListItemHomeViewBinding
+import com.ntmk.myapp.databinding.FragmentHomeBinding
 import com.ntmk.myapp.model.Flower
+import com.ntmk.myapp.model.ListCgrData
 import com.ntmk.myapp.view.CartActivity
 
 class HomeFragment : Fragment() {
@@ -54,6 +53,9 @@ class HomeFragment : Fragment() {
             val i = Intent(requireContext(), CartActivity::class.java)
             startActivity(i)
         }
+        binding.txtSearch.setOnClickListener {
+            showDialogSearch()
+        }
 
 //      add list
         postToListCgr()
@@ -87,6 +89,22 @@ class HomeFragment : Fragment() {
                 Log.e("Cancel", error.toString())
             }
         })
+    }
+    private fun showDialogSearch() {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_search)
+        val window = dialog.window ?: return
+        window.setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
+        window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val windowAttribute = window.attributes
+        windowAttribute.gravity = Gravity.TOP
+
+//        EditText editText = dialog.findViewById(R.id.layout);
+        dialog.show()
     }
 
     //    list categories horizontal
