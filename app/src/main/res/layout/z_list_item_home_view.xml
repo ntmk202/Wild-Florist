@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@color/bgr_pager"
         android:id="@+id/lyHomeViewList"
-        tools:context=".view.ui.home.HomeFragment">
+        tools:context=".view.ui.HomeFragment">
 
         <RelativeLayout
             android:id="@+id/lyViewListPink"

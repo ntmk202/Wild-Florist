@@ -10,7 +10,7 @@
         android:background="@color/bgr_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.ui.home.HomeFragment">
+        tools:context=".view.ui.HomeFragment">
 
         <LinearLayout
             android:id="@+id/lyTop"

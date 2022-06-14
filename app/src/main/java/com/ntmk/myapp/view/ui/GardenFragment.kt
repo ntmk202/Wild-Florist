@@ -1,4 +1,4 @@
-package com.ntmk.myapp.view.ui.garden
+package com.ntmk.myapp.view.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.ntmk.myapp.view.ui.home
+package com.ntmk.myapp.view.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.FragmentHomeBinding
 import com.ntmk.myapp.adapters.CategoriesAdapter
 import com.ntmk.myapp.adapters.ListFlowerHomeAdapter
+import com.ntmk.myapp.databinding.FragmentBlogBinding
 import com.ntmk.myapp.model.ListCgrData
 import com.ntmk.myapp.databinding.ZListItemHomeViewBinding
 import com.ntmk.myapp.model.Flower
@@ -21,16 +23,14 @@ import com.ntmk.myapp.view.CartActivity
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var binding: FragmentHomeBinding
     lateinit var mDatabase: DatabaseReference
     private lateinit var flowerList: ArrayList<Flower>
     private lateinit var mAdapter: ListFlowerHomeAdapter
-    private lateinit var mbinding: ZListItemHomeViewBinding
 
     // This property is only valid between onCreateView and
     // onDestroyView.
 
-    private val binding get() = _binding!!
 
     //    add data list
     private var Cgr_data = mutableListOf<ListCgrData>()
@@ -39,12 +39,10 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
         flowerList = ArrayList()
         mAdapter = ListFlowerHomeAdapter(requireContext(), flowerList)
-
-
         binding.listProduct.layoutManager =
             GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         binding.listProduct.setHasFixedSize(true)
@@ -89,11 +87,6 @@ class HomeFragment : Fragment() {
                 Log.e("Cancel", error.toString())
             }
         })
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     //    list categories horizontal

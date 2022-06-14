@@ -7,25 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.ntmk.myapp.view.ui.home.HomeFragment"
+        android:name="com.ntmk.myapp.view.ui.HomeFragment"
         tools:layout="@layout/fragment_home" >
     </fragment>
 
     <fragment
         android:id="@+id/navigation_garden"
-        android:name="com.ntmk.myapp.view.ui.garden.GardenFragment"
+        android:name="com.ntmk.myapp.view.ui.GardenFragment"
         tools:layout="@layout/fragment_garden" >
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_blog"
+        android:name="com.ntmk.myapp.view.ui.BlogFragment"
+        tools:layout="@layout/fragment_blog" >
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_notification"
-        android:name="com.ntmk.myapp.view.ui.notifications.NotificationsFragment"
+        android:name="com.ntmk.myapp.view.ui.NotificationsFragment"
         tools:layout="@layout/fragment_notifications" >
     </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.ntmk.myapp.view.ui.profile.ProfileFragment"
+        android:name="com.ntmk.myapp.view.ui.ProfileFragment"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_navigation_profile_to_navigation_balance"
@@ -37,7 +43,7 @@
 
     <fragment
         android:id="@+id/navigation_balance"
-        android:name="com.ntmk.myapp.view.ui.profile.BalanceFragment"
+        android:name="com.ntmk.myapp.view.ui.BalanceFragment"
         tools:layout="@layout/fragment_balance" >
         <action
             android:id="@+id/action_navigation_balance_to_navigation_profile"
@@ -45,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.ntmk.myapp.view.ui.profile.SettingFragment"
+        android:name="com.ntmk.myapp.view.ui.SettingFragment"
         android:label="SettingFragment" >
         <action
             android:id="@+id/action_settingFragment_to_navigation_profile"

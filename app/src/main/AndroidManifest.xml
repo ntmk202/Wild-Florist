@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
         <activity
+            android:name=".BlogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WebBlogActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ReceiptActivity"
             android:exported="false" />
 

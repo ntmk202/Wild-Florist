@@ -11,6 +11,9 @@
     <color name="light_grey">#E8F6F6F6</color>
 
     <!-- custom colors -->
+    <color name="color_text_blog">#990000</color>
+    <color name="color_bgblog">#F5F5F5</color>
+    <color name="color_yellow">#FF9900</color>
     <color name="bgr_pager">#fcfaf2</color>
     <color name="color_hint">#FDB499</color>
     <color name="color_note">#FF5E5E</color>

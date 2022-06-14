@@ -1,14 +1,11 @@
-package com.ntmk.myapp.view.ui.notifications
+package com.ntmk.myapp.view.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,10 +13,7 @@ import com.google.firebase.database.*
 import com.ntmk.myapp.R
 import com.ntmk.myapp.adapters.ListNotificationAdapter
 import com.ntmk.myapp.databinding.FragmentNotificationsBinding
-import com.ntmk.myapp.databinding.ZListNotificationBinding
 import com.ntmk.myapp.model.Notificationn
-import com.ntmk.myapp.view.CartActivity
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 class NotificationsFragment : Fragment() {
 

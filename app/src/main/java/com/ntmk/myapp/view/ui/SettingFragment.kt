@@ -1,4 +1,4 @@
-package com.ntmk.myapp.view.ui.profile
+package com.ntmk.myapp.view.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

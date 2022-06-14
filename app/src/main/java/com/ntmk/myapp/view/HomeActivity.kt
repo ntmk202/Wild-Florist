@@ -4,15 +4,11 @@ import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.ntmk.myapp.R
 import com.ntmk.myapp.databinding.ActivityHomeBinding
-import com.ntmk.myapp.model.Flower
-import com.ntmk.myapp.model.User
-import com.ntmk.myapp.view.ui.profile.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
 
