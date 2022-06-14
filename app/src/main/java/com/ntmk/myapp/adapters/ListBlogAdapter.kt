@@ -41,10 +41,11 @@ class ListBlogAdapter(var context: Context, var listBlog: ArrayList<Blog>) :
 
     override fun onBindViewHolder(holder: ListBlogViewHolder, position: Int) {
         holder.v.blog = listBlog[position]
+        var blog = listBlog[position]
 
         holder.layout?.setOnClickListener(View.OnClickListener { view: View? ->
             val intent = Intent(mContext, WebBlogActivity::class.java)
-            intent.putExtra("LinkNew",holder.v.blog.link )
+            intent.putExtra("LinkNew",blog.link )
             mContext!!.startActivity(intent)
         })
 
