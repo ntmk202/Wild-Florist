@@ -44,7 +44,7 @@ class ListBlogAdapter(var context: Context, var listBlog: ArrayList<Blog>) :
 
         holder.layout?.setOnClickListener(View.OnClickListener { view: View? ->
             val intent = Intent(mContext, WebBlogActivity::class.java)
-            intent.putExtra("LinkTinTuc",holder.v.blog.link )
+            intent.putExtra("LinkNew",holder.v.blog.link )
             mContext!!.startActivity(intent)
         })
 
