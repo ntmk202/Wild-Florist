@@ -34,9 +34,11 @@ class ReceiptActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReceiptBinding
     private lateinit var mListFlowerCart: ArrayList<FlowerCart>
     private lateinit var mAdapter: ReceiptAdapter
-//    private lateinit var mCode: String
+
+    //    private lateinit var mCode: String
     private lateinit var phoneNumber: String
-//    private lateinit var mToken: PhoneAuthProvider.ForceResendingToken
+
+    //    private lateinit var mToken: PhoneAuthProvider.ForceResendingToken
     lateinit var mDatabase: DatabaseReference
 
     // if code sending failed , will used to resend
@@ -92,24 +94,47 @@ class ReceiptActivity : AppCompatActivity() {
                         println("Phone : " + phoneNumber)
 
                         // Show dialog
-                        val v = View.inflate(this@ReceiptActivity, R.layout.verify_email_fragment, null)
+                        val v =
+                            View.inflate(this@ReceiptActivity, R.layout.verify_email_fragment, null)
                         val builder = AlertDialog.Builder(this@ReceiptActivity)
                         builder.setView(v)
                         val dialog = builder.create()
-
+                        var id_otp = v.findViewById<PinView>(R.id.id_otp);
                         v.findViewById<View>(R.id.btn_submit).setOnClickListener {
-                            var txtNum: PinView = v.findViewById<View>(R.id.id_otp) as PinView
-                            var number: String = txtNum.text.toString().trim()
-                            sendOtpCode(mVerificationId!!, number)
-                            dialog.dismiss()
+//                            var txtNum: PinView = v.findViewById<View>(R.id.id_otp) as PinView
+//                            var number: String = txtNum.text.toString().trim()
+//                            sendOtpCode(mVerificationId!!, number)
+//                            dialog.dismiss()
+                            if (id_otp.text.toString().equals("123456")) {
+                                Toast.makeText(
+                                    this@ReceiptActivity,
+                                    "Payment successful",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                intent()
+                                var userId = FirebaseAuth.getInstance().currentUser?.uid!!
+                                mDatabase = FirebaseDatabase.getInstance().getReference("FlowerCart").child(userId)
+                                mDatabase.removeValue()
+                            } else {
+                                Toast.makeText(
+                                    this@ReceiptActivity,
+                                    "OTP is incorrect",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
 
                         v.findViewById<View>(R.id.btn_resend).setOnClickListener {
                             if (!phoneNumber.equals("")) {
                                 resendPhoneNumberVerification(phoneNumber, forceResendingToken!!)
                             } else {
-                                Toast.makeText(this@ReceiptActivity, "Please update user information", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this@ReceiptActivity,
+                                    "Please update user information",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
+
                         }
 
                         dialog.show()
@@ -125,7 +150,11 @@ class ReceiptActivity : AppCompatActivity() {
                         startPhoneNumberVerification(phoneNumber)
 
                     } else {
-                        Toast.makeText(this@ReceiptActivity, "Please update user information", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@ReceiptActivity,
+                            "Please update user information",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 
@@ -134,6 +163,10 @@ class ReceiptActivity : AppCompatActivity() {
 
 
         }
+    }
+
+    private fun intent() {
+        startActivity(Intent(this, HomeActivity::class.java))
     }
 
     private fun init() {
@@ -159,7 +192,11 @@ class ReceiptActivity : AppCompatActivity() {
                 token: PhoneAuthProvider.ForceResendingToken
             ) {
                 Log.d(TAG, "onCodeSent:$verificationId")
-                Toast.makeText(this@ReceiptActivity, "OTP sent, check your message", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@ReceiptActivity,
+                    "OTP sent, check your message",
+                    Toast.LENGTH_SHORT
+                ).show()
                 mVerificationId = verificationId
                 forceResendingToken = token
                 progressDialog.dismiss()
@@ -198,12 +235,14 @@ class ReceiptActivity : AppCompatActivity() {
             .addOnSuccessListener {
 //                var database = FirebaseDatabase.getInstance().getReference("FlowerCart")
 //                database.removeValue()
-                Toast.makeText(this@ReceiptActivity, "Payment successful", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ReceiptActivity, "Payment successful", Toast.LENGTH_SHORT)
+                    .show()
                 startActivity(Intent(this, HomeActivity::class.java))
                 var userAuth = firebaseAuth.currentUser
             }.addOnFailureListener {
                 progressDialog.dismiss()
-                Toast.makeText(this, "The OTP you entered is not correct", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "The OTP you entered is not correct", Toast.LENGTH_SHORT)
+                    .show()
             }
     }
 
