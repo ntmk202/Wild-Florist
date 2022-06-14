@@ -37,7 +37,8 @@ class BlogFragment : Fragment() {
         mAdapter = ListBlogAdapter(requireContext(),blogList)
 
         binding.listBlog.layoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        binding.listBlog.setHasFixedSize(true)
         binding.listBlog.adapter = mAdapter
         showBlog()
 
