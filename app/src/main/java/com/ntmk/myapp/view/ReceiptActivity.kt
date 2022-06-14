@@ -34,9 +34,9 @@ class ReceiptActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReceiptBinding
     private lateinit var mListFlowerCart: ArrayList<FlowerCart>
     private lateinit var mAdapter: ReceiptAdapter
-    private lateinit var mCode: String
+//    private lateinit var mCode: String
     private lateinit var phoneNumber: String
-    private lateinit var mToken: PhoneAuthProvider.ForceResendingToken
+//    private lateinit var mToken: PhoneAuthProvider.ForceResendingToken
     lateinit var mDatabase: DatabaseReference
 
     // if code sending failed , will used to resend
@@ -62,21 +62,23 @@ class ReceiptActivity : AppCompatActivity() {
         getFlowerData()
         init()
 
-        // PrigressDialog
+        // ProgressDialog
         progressDialog.setTitle("Please wail")
         progressDialog.setCanceledOnTouchOutside(false)
 
 
         binding.btnConfirm.setOnClickListener {
             var userAuth = firebaseAuth.currentUser
+            var currentUser = FirebaseAuth.getInstance().currentUser!!
             phoneNumber = userAuth?.phoneNumber.toString()
             var database = FirebaseDatabase.getInstance().getReference("Users")
+//                .child((currentUser?.uid!!))
             var list_user = ArrayList<User>()
 
             database.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     for (data in p0.children) {
-                        var user = data.getValue(User::class.java)
+                        var user = data.getValue(User::class.java) as User
                         list_user.add(user as User)
                     }
                     for (user in list_user) {
@@ -214,7 +216,8 @@ class ReceiptActivity : AppCompatActivity() {
     }
 
     fun getFlowerData() {
-        mDatabase = FirebaseDatabase.getInstance().getReference("FlowerCart")
+        var userId = FirebaseAuth.getInstance().currentUser?.uid!!
+        mDatabase = FirebaseDatabase.getInstance().getReference("FlowerCart").child(userId)
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 if (p0.exists()) {

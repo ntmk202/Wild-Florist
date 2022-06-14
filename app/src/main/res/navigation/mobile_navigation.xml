@@ -9,27 +9,18 @@
         android:id="@+id/navigation_home"
         android:name="com.ntmk.myapp.view.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_cartFragment"
-            app:destination="@id/cartFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_garden"
         android:name="com.ntmk.myapp.view.ui.garden.GardenFragment"
         tools:layout="@layout/fragment_garden" >
-        <action
-            android:id="@+id/action_navigation_garden_to_cartFragment"
-            app:destination="@id/cartFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_notification"
         android:name="com.ntmk.myapp.view.ui.notifications.NotificationsFragment"
         tools:layout="@layout/fragment_notifications" >
-        <action
-            android:id="@+id/action_navigation_notification_to_cartFragment"
-            app:destination="@id/cartFragment" />
     </fragment>
 
     <fragment
@@ -59,19 +50,5 @@
         <action
             android:id="@+id/action_settingFragment_to_navigation_profile"
             app:destination="@id/navigation_profile" />
-    </fragment>
-    <fragment
-        android:id="@+id/cartFragment"
-        android:name="com.ntmk.myapp.view.ui.CartFragment"
-        android:label="CartFragment" >
-        <action
-            android:id="@+id/action_cartFragment_to_navigation_notification"
-            app:destination="@id/navigation_notification" />
-        <action
-            android:id="@+id/action_cartFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-        <action
-            android:id="@+id/action_cartFragment_to_navigation_garden"
-            app:destination="@id/navigation_garden" />
     </fragment>
 </navigation>

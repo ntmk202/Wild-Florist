@@ -80,19 +80,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <ImageView
-            android:id="@+id/imgCart"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:padding="4dp"
-            android:background="@drawable/shape_arrow"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/cart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout

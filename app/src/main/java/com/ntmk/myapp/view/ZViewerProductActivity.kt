@@ -25,18 +25,18 @@ class ZViewerProductActivity : AppCompatActivity() {
             return
         }
         var flower: Flower = mBundle.get("Flower") as Flower
-        binding.viewHomeName.setText(flower.name)
-        binding.viewHomePrice.setText(flower.price)
+        binding.viewHomeName.text = flower.name
+        binding.viewHomePrice.text = flower.price
 
         Picasso.get()
             .load(flower.img)
             .into(binding.imgVProduct);
 
-        binding.tvInterview.setText(flower.info)
-        binding.txtHumidity.setText(""+flower.humidity+"%")
-        binding.txtTemperature.setText(""+flower.temperature+"%")
-        binding.txtLight.setText(""+flower.light+"°C")
-        binding.txtWeight.setText(""+flower.weight+"g")
+        binding.tvInterview.text = flower.info
+        binding.txtHumidity.text = ""+flower.humidity+"%"
+        binding.txtTemperature.text = ""+flower.temperature+"%"
+        binding.txtLight.text = ""+flower.light+"°C"
+        binding.txtWeight.text = ""+flower.weight+"g"
 
         binding.linkBack.setOnClickListener {
             val i = Intent(this, HomeActivity::class.java)
@@ -47,7 +47,7 @@ class ZViewerProductActivity : AppCompatActivity() {
             listFlowerCart = database.getListFlowerCart()
             var mFlowerCart : FlowerCart = FlowerCart()
 
-            mFlowerCart.idFlower = flower.id!!
+            mFlowerCart.idFlower = flower.id.toString()!!
             mFlowerCart.name = flower.name!!
             mFlowerCart.price = flower.price!!
             mFlowerCart.img = flower.img!!

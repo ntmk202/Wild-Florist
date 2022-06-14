@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.ntmk.myapp.R
 import com.ntmk.myapp.controller.CartFirebase
@@ -20,11 +21,11 @@ class FlowerCartAdapter(var context: Context, var listFlowerCart: ArrayList<Flow
 
     inner class ListFlowerCartViewHolder(var v: ZListCartTabViewBinding) :
         RecyclerView.ViewHolder(v.root) {
-        var btnRemoveFlower: ImageButton? = null
+        var btnRemoveFlower: ImageView? = null
         var txtQuantity: EditText? = null
         var btnIncreaseQuantity: ImageButton? = null
         var btnDecreaseQuantity: ImageButton? = null
-        var checkbox: CheckBox? = null
+//        var checkbox: CheckBox? = null
         var database: CartFirebase = CartFirebase()
 
         init {
@@ -55,6 +56,7 @@ class FlowerCartAdapter(var context: Context, var listFlowerCart: ArrayList<Flow
             holder.database.addFlowerCart(flower)
             Toast.makeText(mContext, "Cart updated", Toast.LENGTH_SHORT).show()
         }
+
         holder.btnDecreaseQuantity?.setOnClickListener {
             if (holder.txtQuantity?.text.toString().toInt() > 1) {
                 holder.txtQuantity?.setText(
@@ -67,16 +69,16 @@ class FlowerCartAdapter(var context: Context, var listFlowerCart: ArrayList<Flow
             holder.database.addFlowerCart(flower)
             Toast.makeText(mContext, "Cart updated", Toast.LENGTH_SHORT).show()
         }
+
         holder.btnRemoveFlower?.setOnClickListener {
+//            var userId = FirebaseAuth.getInstance().currentUser?.uid!!
             var database =
                 FirebaseDatabase.getInstance().getReference("FlowerCart" + "/" + flower.id)
+//                    .child(userId)
             database.removeValue()
             Toast.makeText(mContext, "Cart updated", Toast.LENGTH_SHORT).show()
         }
-
-
     }
-
 
     override fun getItemCount(): Int {
         return listFlowerCart.size

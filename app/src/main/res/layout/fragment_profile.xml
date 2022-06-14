@@ -70,7 +70,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="380dp"
+            android:layout_width="300dp"
             android:layout_height="100dp"
             android:layout_marginTop="-20dp"
             app:cardCornerRadius="20dp"
@@ -79,7 +79,7 @@
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
             <LinearLayout
-                android:layout_width="170dp"
+                android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
                 android:layout_marginStart="10dp"
@@ -111,7 +111,7 @@
                 android:background="@color/pink_nude" />
 
             <LinearLayout
-                android:layout_width="170dp"
+                android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:layout_marginEnd="10dp"
@@ -161,8 +161,9 @@
                 android:background="@drawable/shape_arrow"
                 android:drawableStart="@drawable/user_name"
                 android:drawablePadding="20dp"
+                android:paddingStart="10dp"
                 android:hint="Name"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
 
             <EditText
@@ -173,8 +174,9 @@
                 android:background="@drawable/shape_arrow"
                 android:drawableStart="@drawable/gmail"
                 android:drawablePadding="20dp"
+                android:paddingStart="10dp"
                 android:hint="Email"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txt_phone"
@@ -184,9 +186,10 @@
                 android:background="@drawable/shape_arrow"
                 android:drawableStart="@drawable/telephone"
                 android:drawablePadding="20dp"
+                android:paddingStart="10dp"
                 android:gravity="center_vertical"
                 android:hint="Phone"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txt_address"
@@ -196,22 +199,22 @@
                 android:background="@drawable/shape_arrow"
                 android:drawableStart="@drawable/placeholder"
                 android:drawablePadding="20dp"
+                android:paddingStart="10dp"
                 android:gravity="center_vertical"
                 android:hint="Address"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_Confirm"
             android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
             android:text="Confirm"
-            android:textSize="20sp"
             android:textStyle="bold"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/btn_logout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
@@ -219,15 +222,14 @@
         <Button
             android:id="@+id/btn_logout"
             android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="160dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
             android:text="Log out"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_Confirm"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

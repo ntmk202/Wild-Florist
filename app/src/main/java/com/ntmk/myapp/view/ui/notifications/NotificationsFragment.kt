@@ -45,10 +45,10 @@ class NotificationsFragment : Fragment() {
 
         getFlowerData()
 
-        binding.imgCart.setOnClickListener {
-            val i = Intent(requireContext(), CartActivity::class.java)
-            startActivity(i)
-        }
+//        binding.imgCart.setOnClickListener {
+//            val i = Intent(requireContext(), CartActivity::class.java)
+//            startActivity(i)
+//        }
         binding.imgMenu.setOnClickListener {
             popupMenus(it)
         }

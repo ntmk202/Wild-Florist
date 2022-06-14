@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MyApp</string>
     <string name="todo">TODO</string>
-    <string name="welcome">Welcome</string>
+    <string name="welcome">WELCOME</string>
     <string name="pass">Pass</string>
     <string name="login">Login</string>
     <string name="forgot_password">Forgot Password</string>

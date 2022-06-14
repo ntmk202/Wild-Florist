@@ -22,12 +22,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/img_logo"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10sp"
             android:fontFamily="@font/crafty_girls"
             android:gravity="center"
             android:text="@string/wild_florist"
             android:textColor="@color/text"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
     </RelativeLayout>

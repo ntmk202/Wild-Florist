@@ -85,6 +85,7 @@ class ProfileFragment : Fragment() {
         binding.txtEmail.setText(emailAuth)
 
         val database = FirebaseDatabase.getInstance().getReference("Users")
+//            .child((mFirebaseuser?.uid!!))
         val list_user = ArrayList<User>()
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {

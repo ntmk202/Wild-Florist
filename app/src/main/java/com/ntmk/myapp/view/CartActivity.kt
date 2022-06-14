@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ntmk.myapp.R
 import com.ntmk.myapp.adapters.FlowerCartAdapter
@@ -64,8 +65,9 @@ class CartActivity : AppCompatActivity() {
 
     }
 
-    fun getFlowerData() {
-        mDatabase = FirebaseDatabase.getInstance().getReference("FlowerCart")
+    private fun getFlowerData() {
+        var userId = FirebaseAuth.getInstance().currentUser?.uid!!
+        mDatabase = FirebaseDatabase.getInstance().getReference("FlowerCart").child(userId)
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 if (p0.exists()) {
@@ -76,9 +78,9 @@ class CartActivity : AppCompatActivity() {
                     }
                     var total_Price: Int = 0
                     for (flower in mListFlowerCart) {
-                        total_Price = total_Price + flower.quantity * getNumberPrice(flower.price)
+                        total_Price += flower.quantity * getNumberPrice(flower.price)
                     }
-                    binding.txtTotalPrice.setText("$" + total_Price.toString())
+                    binding.txtTotalPrice.text = "$$total_Price"
                     binding.flowerCart.adapter = mAdapter
                     binding.flowerCart.adapter?.notifyDataSetChanged()
 

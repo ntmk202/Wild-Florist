@@ -16,15 +16,14 @@
         tools:context=".view.ui.home.HomeFragment">
 
         <RelativeLayout
-            android:layout_width="160dp"
+            android:id="@+id/lyViewListPink"
+            android:layout_width="150dp"
             android:layout_height="230dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:id="@+id/lyViewListPink"
-
+            android:layout_marginEnd="20dp"
             android:background="@drawable/shape_list"
             android:padding="5dp">
-<!--            android:onClick="@{()-> listItemHome.OnClick()}"-->
+            <!--            android:onClick="@{()-> listItemHome.OnClick()}"-->
 
             <TextView
                 android:id="@+id/txtView_list"
@@ -36,7 +35,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="@={listItemHome.name}"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtPrice_list"
@@ -48,19 +47,19 @@
                 android:layout_marginBottom="10dp"
                 android:text="@={listItemHome.price}"
                 android:textColor="@color/cannon_pink"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/btn_addProductToCart"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="4dp"
                 android:background="@drawable/shape_link"
                 android:contentDescription="@string/todo"
-                android:padding="15dp"
+                android:padding="10dp"
                 android:src="@drawable/cart" />
 
 
@@ -68,9 +67,9 @@
 
         <ImageView
             android:id="@+id/imgView_list"
-            android:layout_width="170dp"
+            android:layout_width="150dp"
             android:layout_height="170dp"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="25dp"
             android:layout_marginBottom="60dp"
             android:contentDescription="@string/todo"
             android:imageUrl="@{listItemHome.img}"

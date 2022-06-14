@@ -42,7 +42,7 @@
             android:letterSpacing="0.01"
             android:padding="5dp"
             android:text="@string/fresh"
-            android:textSize="10dp"
+            android:textSize="10sp"
             android:textStyle="bold" />
 
     </RelativeLayout>

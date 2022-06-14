@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -24,7 +25,7 @@ class ListFlowerHomeAdapter(var context: Context, var flowerList: ArrayList<Flow
     inner class ListFlowerHomeViewHolder(var v: ZListItemHomeViewBinding) :
         RecyclerView.ViewHolder(v.root) {
         var itemFlower: RelativeLayout? = null
-        var btnAddCart: ImageButton? = null
+        var btnAddCart: ImageView? = null
         var database: CartFirebase = CartFirebase()
 
         init {
@@ -45,9 +46,11 @@ class ListFlowerHomeAdapter(var context: Context, var flowerList: ArrayList<Flow
     override fun onBindViewHolder(holder: ListFlowerHomeViewHolder, position: Int) {
         holder.v.listItemHome = flowerList[position]
         var flower: Flower = flowerList[position]
+        // này nó lấy cái đối tượng flower ra mà ta , nếu làm như m đó , thì cái id sửa lại thành như này
         holder.itemFlower?.setOnClickListener {
             onClickGoToDetail(flower)
         }
+
         holder.btnAddCart?.setOnClickListener {
             var listFlowerCart: ArrayList<FlowerCart> = ArrayList()
             listFlowerCart = holder.database.getListFlowerCart()
@@ -58,6 +61,7 @@ class ListFlowerHomeAdapter(var context: Context, var flowerList: ArrayList<Flow
             mFlowerCart.price = flower.price!!
             mFlowerCart.img = flower.img!!
             var check: Boolean = false
+
             for (flower in listFlowerCart) {
                 if (mFlowerCart.idFlower == flower.idFlower) {
                     mFlowerCart.id = flower.id
@@ -79,7 +83,7 @@ class ListFlowerHomeAdapter(var context: Context, var flowerList: ArrayList<Flow
         }
     }
 
-    fun onClickGoToDetail(flower: Flower) {
+    private fun onClickGoToDetail(flower: Flower) {
         val i = Intent(mContext, ZViewerProductActivity::class.java)
         var mBundle: Bundle = Bundle()
         mBundle.putSerializable("Flower", flower)

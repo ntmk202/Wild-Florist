@@ -65,7 +65,7 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/reset_password"
             android:textColor="@color/text"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -98,7 +98,7 @@
                 android:drawablePadding="10dp"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:padding="15dp"
+                android:padding="10dp"
                 android:textColor="@color/txtActionBar"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -134,10 +134,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-condensed"
+            android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/create_new_account"
             android:textColor="@color/txt_title"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
 
     </LinearLayout>

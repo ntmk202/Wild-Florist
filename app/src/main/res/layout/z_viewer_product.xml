@@ -32,10 +32,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="470dp"
-        android:background="@drawable/shape_imges"
+        android:layout_height="430dp"
+        android:background="@drawable/shape_verify"
         android:layout_marginTop="-60dp"
-        android:layout_marginBottom="-50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -49,7 +48,7 @@
             android:textStyle="bold"
             android:text="Flower Name"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,7 +60,7 @@
             android:layout_marginTop="10dp"
             android:text="$10"
             android:textColor="@color/cannon_pink"
-            android:textSize="20dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewHome_name" />
 
@@ -76,192 +75,196 @@
             app:layout_constraintTop_toBottomOf="@+id/viewHome_name">
 
             <ImageButton
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/ic_baseline_star_24" />
 
             <ImageButton
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/ic_baseline_star_24" />
 
             <ImageButton
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/ic_baseline_star_24" />
 
             <ImageButton
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/ic_baseline_star_half_24" />
 
             <ImageButton
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/ic_baseline_star_border_24" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_interview"
             android:layout_width="match_parent"
-            android:layout_height="115dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:layout_marginStart="10dp"
+            android:padding="20dp"
             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
             android:textColor="@color/gray"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/evaluate" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <HorizontalScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
+            android:layout_marginBottom="30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_interview">
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@color/white"
-                android:outlineAmbientShadowColor="@color/pink_nude"
-                app:cardCornerRadius="20dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white"
+                    android:outlineAmbientShadowColor="@color/pink_nude"
+                    app:cardCornerRadius="20dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_humidity"
-                    android:layout_gravity="center"
-                    android:drawableStart="@drawable/water"
-                    android:drawablePadding="5dp"
-                    android:text="10%"
-                    android:textColor="@color/pink_nude"
-                    android:textSize="18sp" />
-            </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_humidity"
+                        android:layout_gravity="center"
+                        android:drawableStart="@drawable/water"
+                        android:drawablePadding="5dp"
+                        android:text="10%"
+                        android:textColor="@color/pink_nude"
+                        android:textSize="18sp" />
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/white"
-                android:outlineAmbientShadowColor="@color/pink_nude"
-                app:cardCornerRadius="20dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:outlineAmbientShadowColor="@color/pink_nude"
+                    app:cardCornerRadius="20dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_light"
-                    android:layout_gravity="center"
-                    android:drawableStart="@drawable/sun"
-                    android:drawablePadding="5dp"
-                    android:textColor="@color/pink_nude"
-                    android:text="70%"
-                    android:textSize="20sp" />
-            </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_light"
+                        android:layout_gravity="center"
+                        android:drawableStart="@drawable/sun"
+                        android:drawablePadding="5dp"
+                        android:textColor="@color/pink_nude"
+                        android:text="70%"
+                        android:textSize="20sp" />
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/white"
-                android:outlineAmbientShadowColor="@color/pink_nude"
-                app:cardCornerRadius="20dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:outlineAmbientShadowColor="@color/pink_nude"
+                    app:cardCornerRadius="20dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_temperature"
-                    android:layout_gravity="center"
-                    android:drawableStart="@drawable/thermometer"
-                    android:drawablePadding="5dp"
-                    android:textColor="@color/pink_nude"
-                    android:text="30°C"
-                    android:textSize="20sp" />
-            </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_temperature"
+                        android:layout_gravity="center"
+                        android:drawableStart="@drawable/thermometer"
+                        android:drawablePadding="5dp"
+                        android:textColor="@color/pink_nude"
+                        android:text="30°C"
+                        android:textSize="20sp" />
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/white"
-                android:outlineAmbientShadowColor="@color/pink_nude"
-                app:cardCornerRadius="20dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:outlineAmbientShadowColor="@color/pink_nude"
+                    app:cardCornerRadius="20dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_weight"
-                    android:layout_gravity="center"
-                    android:drawableStart="@drawable/ruler"
-                    android:textColor="@color/pink_nude"
-                    android:text="25g"
-                    android:textSize="20sp" />
-            </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_weight"
+                        android:layout_gravity="center"
+                        android:drawableStart="@drawable/ruler"
+                        android:textColor="@color/pink_nude"
+                        android:text="25g"
+                        android:textSize="20sp" />
+                </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="30dp"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageButton
                 android:id="@+id/btn_decreaseqQuantity"
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:padding="5dp"
-                android:background="@color/pink"
+                android:background="@drawable/shape_arrow"
+                android:backgroundTint="@color/pink"
                 android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
 
             <EditText
                 android:id="@+id/txt_quantity"
-                android:layout_width="55dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/shape_arrow"
-                android:padding="10dp"
                 android:gravity="center"
                 android:text="1"
                 android:enabled="false"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <ImageButton
                 android:id="@+id/btn_increaseqQuantity"
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:padding="5dp"
-                android:background="@color/pink"
+                android:background="@drawable/shape_arrow"
+                android:backgroundTint="@color/pink"
                 android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_addProductToCart"
-            android:layout_width="210dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="Add to cart"
             android:background="@drawable/button"
             app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

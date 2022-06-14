@@ -77,6 +77,7 @@ class HomeFragment : Fragment() {
                     for (data in p0.children) {
                         val flower = data.getValue(Flower::class.java)
                         flowerList.add(flower!!)
+
                     }
                     binding.listProduct.adapter = mAdapter
                     binding.listProduct.adapter?.notifyDataSetChanged()

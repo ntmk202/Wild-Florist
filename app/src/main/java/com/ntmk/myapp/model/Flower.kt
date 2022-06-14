@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import java.io.Serializable
 
 class Flower : Serializable {
-    var id: Int? = 0
+    var id: String = ""
     var name: String? = null
     var price: String? = null
     var tag: String? = null

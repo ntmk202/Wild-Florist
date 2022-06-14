@@ -2,6 +2,7 @@ package com.ntmk.myapp.controller
 
 import android.util.Log
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ntmk.myapp.model.FlowerCart
 import com.ntmk.myapp.model.User
@@ -9,9 +10,10 @@ import com.ntmk.myapp.model.User
 class CartFirebase {
     private var listFlowerCart: ArrayList<FlowerCart> = ArrayList()
     private var database: DatabaseReference
+    var userId = FirebaseAuth.getInstance().currentUser?.uid!!
 
     init {
-        database = FirebaseDatabase.getInstance().getReference("FlowerCart")
+        database = FirebaseDatabase.getInstance().getReference("FlowerCart").child(userId)
     }
 
     fun getListFlowerCart(): ArrayList<FlowerCart>{

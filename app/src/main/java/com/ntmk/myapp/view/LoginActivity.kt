@@ -66,24 +66,21 @@ open class LoginActivity : AppCompatActivity() {
     }
 
     private fun sendDataAuth(email:String , pass : String){
-        if(mAuth == null){
-            println("NULL")
-        }
-
         mAuth.signInWithEmailAndPassword(email, pass)
             .addOnCompleteListener(this) { task ->
-                println()
                 if (task.isSuccessful) {
-                    progressDialog.dismiss()
-
-                    val i = Intent(this, HomeActivity::class.java)
-                    startActivity(i)
-                    Toast.makeText(baseContext, "Login success!", Toast.LENGTH_SHORT).show()
-
+                    var currentUser = FirebaseAuth.getInstance().currentUser!!
+                    if(currentUser.isEmailVerified){
+                        val i = Intent(this, HomeActivity::class.java)
+                        startActivity(i)
+                        Toast.makeText(baseContext, "Login success!", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(baseContext, "Verify your email !!", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
-                    progressDialog.dismiss()
-                    Toast.makeText(baseContext, "Login failed!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Email or Password doesn't match!", Toast.LENGTH_SHORT).show()
                 }
+                progressDialog.dismiss()
             }
     }
 
@@ -121,7 +118,7 @@ open class LoginActivity : AppCompatActivity() {
             override fun afterTextChanged(editable: Editable) {
                 var Pass: String = binding.txtPass.text.toString()
                 var checkPass: String = checkPass(Pass)
-                binding.txtMessagePass.setText(checkPass)
+                binding.txtMessagePass.text = checkPass
             }
         })
 
@@ -141,7 +138,7 @@ open class LoginActivity : AppCompatActivity() {
             override fun afterTextChanged(editable: Editable) {
                 var Email: String = binding.txtEmail.text.toString()
                 var checkEmail: String = checkEmail(Email)
-                binding.txtMessageEmail.setText(checkEmail)
+                binding.txtMessageEmail.text = checkEmail
             }
         })
 

@@ -39,7 +39,7 @@
                 android:paddingEnd="20dp"
                 android:text="@string/wild_florist"
                 android:textColor="@color/text"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:transitionName="logo_txt" />
         </LinearLayout>
@@ -61,7 +61,7 @@
                 android:fontFamily="casual"
                 android:text="@string/welcome"
                 android:textColor="@color/text"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -80,9 +80,9 @@
                     android:drawablePadding="10dp"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:textColor="@color/txtActionBar"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -113,9 +113,9 @@
                     android:drawablePadding="10dp"
                     android:hint="@string/pass"
                     android:inputType="textPassword"
-                    android:padding="15dp"
+                    android:padding="10dp"
                     android:textColor="@color/txtActionBar"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -135,11 +135,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/forgot_password"
                 android:textAllCaps="false"
                 android:textColor="@color/text"
-                android:textSize="18sp" />
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/btn_login"
@@ -150,7 +151,7 @@
                 android:padding="10dp"
                 android:text="@string/login"
                 android:textColorLink="#F3C5C5"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -159,20 +160,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:fontFamily="casual"
+                android:fontFamily="sans-serif-condensed-medium"
                 android:text="@string/create_new_account"
                 android:textColor="@color/text"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="14sp"/>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal">
 
                 <View
-                    android:layout_width="140dp"
+                    android:layout_width="100dp"
                     android:layout_height="1dp"
                     android:layout_gravity="center"
                     android:background="@color/black" />
@@ -185,10 +186,10 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:text="@string/or"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
                 <View
-                    android:layout_width="140dp"
+                    android:layout_width="100dp"
                     android:layout_height="1dp"
                     android:layout_gravity="center_vertical"
                     android:background="@color/black" />
