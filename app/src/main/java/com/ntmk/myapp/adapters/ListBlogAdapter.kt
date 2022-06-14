@@ -1,21 +1,17 @@
 package com.ntmk.myapp.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.cardview.widget.CardView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.ntmk.myapp.R
-import com.ntmk.myapp.controller.CartFirebase
+import com.ntmk.myapp.WebBlogActivity
 import com.ntmk.myapp.databinding.ZListBlogItemBinding
-import com.ntmk.myapp.databinding.ZListCartTabViewBinding
 import com.ntmk.myapp.model.Blog
-import com.ntmk.myapp.model.Flower
-import com.ntmk.myapp.model.FlowerCart
 
 class ListBlogAdapter(var context: Context, var listBlog: ArrayList<Blog>) :
     RecyclerView.Adapter<ListBlogAdapter.ListBlogViewHolder>() {
@@ -45,6 +41,12 @@ class ListBlogAdapter(var context: Context, var listBlog: ArrayList<Blog>) :
 
     override fun onBindViewHolder(holder: ListBlogViewHolder, position: Int) {
         holder.v.blog = listBlog[position]
+
+        holder.layout?.setOnClickListener(View.OnClickListener { view: View? ->
+            val intent = Intent(mContext, WebBlogActivity::class.java)
+            intent.putExtra("LinkTinTuc",holder.v.blog.link )
+            mContext!!.startActivity(intent)
+        })
 
     }
 
