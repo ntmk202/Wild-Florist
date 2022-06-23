@@ -5,17 +5,33 @@
       <map>
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/drawable/ic_launcher_blog.xml" value="0.2385" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/drawable/shape_blog.xml" value="0.2385" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/drawable/shape_button.xml" value="0.1715" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/drawable/shape_button_pink.xml" value="0.1715" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/drawable/shape_list.xml" value="0.1715" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/drawable/shape_order.xml" value="0.13" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/drawable/shape_search_dialog.xml" value="0.124" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/activity_blog.xml" value="0.16621376811594202" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/activity_cart.xml" value="0.11302083333333333" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/activity_home.xml" value="0.16621376811594202" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/activity_login.xml" value="0.16621376811594202" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/activity_receipt.xml" value="0.11302083333333333" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/activity_web_blog.xml" value="0.16621376811594202" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/dialog_search.xml" value="0.16621376811594202" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/dialog_update_profile.xml" value="0.2" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/fragment_blog.xml" value="0.19519927536231885" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/fragment_garden.xml" value="0.16621376811594202" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/fragment_home.xml" value="0.16621376811594202" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/fragment_order.xml" value="0.264" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/fragment_setting.xml" value="0.16621376811594202" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/z_list_blog_item.xml" value="0.16621376811594202" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/z_list_cart_product.xml" value="0.11302083333333333" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/z_list_cart_tab_view.xml" value="0.11302083333333333" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/z_list_garden_view.xml" value="0.16621376811594202" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/z_list_item_home_view.xml" value="0.16621376811594202" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/z_list_notification.xml" value="0.16621376811594202" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/z_list_notification1.xml" value="0.11302083333333333" />
+        <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/layout/z_list_order.xml" value="0.2" />
         <entry key="..\:/AndroidProject/Wild Florist/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Wild-Florist/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.154" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Wild-Florist/app/src/main/res/drawable/ic_baseline_keyboard_arrow_left_24.xml" value="0.154" />

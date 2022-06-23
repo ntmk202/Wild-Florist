@@ -19,6 +19,8 @@ import com.ntmk.myapp.databinding.FragmentHomeBinding
 import com.ntmk.myapp.model.Flower
 import com.ntmk.myapp.model.ListCgrData
 import com.ntmk.myapp.view.CartActivity
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeFragment : Fragment() {
 
@@ -68,6 +70,7 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
+
 
     fun getFlowerData() {
         mDatabase = FirebaseDatabase.getInstance().getReference("Flowers")

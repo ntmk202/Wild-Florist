@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             k@
-            startActivity(Intent(this@MainActivity, AdvertisementActivity::class.java))
+            startActivity(Intent(this@MainActivity, HomeActivity::class.java))
             finish()
         }, 2000)
     }

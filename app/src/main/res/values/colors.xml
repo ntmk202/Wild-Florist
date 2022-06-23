@@ -11,6 +11,11 @@
     <color name="light_grey">#E8F6F6F6</color>
 
     <!-- custom colors -->
+
+    <color name="color_text_order">#888888</color>
+    <color name="color_order">#FFF0F5</color>
+    <color name="color_status_order">#FF6600</color>
+    <color name="colorLine">#C0C0C0</color>
     <color name="color_text_blog">#990000</color>
     <color name="color_bgblog">#F5F5F5</color>
     <color name="color_yellow">#FF9900</color>

@@ -10,4 +10,7 @@ class FlowerCart : Serializable {
     var img: String? = null
     var quantity: Int = 0
 
+    override fun toString(): String {
+        return "FlowerCart(id=$id, idFlower='$idFlower', name='$name', price='$price', img=$img, quantity=$quantity)"
+    }
 }
