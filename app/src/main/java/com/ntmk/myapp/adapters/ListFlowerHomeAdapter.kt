@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.Toast
@@ -13,7 +12,7 @@ import androidx.databinding.DataBindingUtil
 import com.ntmk.myapp.databinding.ZListItemHomeViewBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.ntmk.myapp.R
-import com.ntmk.myapp.view.ZViewerProductActivity
+import com.ntmk.myapp.view.home.activity.ZViewerProductActivity
 import com.ntmk.myapp.controller.CartFirebase
 import com.ntmk.myapp.model.Flower
 import com.ntmk.myapp.model.FlowerCart
@@ -79,7 +78,7 @@ class ListFlowerHomeAdapter(var context: Context, var flowerList: ArrayList<Flow
             }
 
             holder.database.addFlowerCart(mFlowerCart)
-            Toast.makeText(mContext, "Add flowers to cart successfully", Toast.LENGTH_LONG).show()
+            Toast.makeText(mContext, "Added to cart", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -87,6 +86,7 @@ class ListFlowerHomeAdapter(var context: Context, var flowerList: ArrayList<Flow
         val i = Intent(mContext, ZViewerProductActivity::class.java)
         var mBundle: Bundle = Bundle()
         mBundle.putSerializable("Flower", flower)
+        mBundle.putString("Activity","HomeActivity")
         i.putExtras(mBundle)
         mContext?.startActivity(i)
 

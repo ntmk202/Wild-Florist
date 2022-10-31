@@ -4,13 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ReceiptActivity">
+    tools:context=".view.home.activity.ReceiptActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/nav_receipt"
         android:background="@color/color_bgr_start"
         tools:context=".view.ui.ReceiptFragment">
+
+        <ImageButton
+            android:id="@+id/link_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="650dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/shape_arrow"
+            android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/lyt_start"
@@ -22,6 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"

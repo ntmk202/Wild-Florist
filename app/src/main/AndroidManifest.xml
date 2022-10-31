@@ -15,13 +15,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
         <activity
+            android:name=".Nav_Header_Main_Admin"
+            android:exported="false" />
+        <activity
+            android:name=".view.admin.AdminActivity"
+            android:exported="false"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/Theme.MyApp.NoActionBar" />
+        <activity
+            android:name=".view.home.activity.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.activity.UpdateProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.activity.MyLikeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.home.activity.OrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".BlogActivity"
             android:exported="false" />
         <activity
-            android:name=".WebBlogActivity"
+            android:name=".view.home.activity.WebBlogActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ReceiptActivity"
+            android:name=".view.home.activity.ReceiptActivity"
             android:exported="false" />
 
         <meta-data
@@ -35,35 +55,35 @@
             android:value="@string/facebook_client_token" />
 
         <activity
-            android:name=".view.BalanceActivity"
+            android:name=".view.home.activity.BalanceActivity"
             android:exported="false" />
         <activity
-            android:name=".view.CartActivity"
+            android:name=".view.home.activity.CartActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ZViewerProductActivity"
+            android:name=".view.home.activity.ZViewerProductActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ForgotPassActivity"
+            android:name=".view.home.activity.ForgotPassActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HomeActivity"
+            android:name=".view.home.activity.HomeActivity"
             android:exported="false"
             android:theme="@style/FullScreen" />
         <activity
-            android:name=".view.LoadingActivity"
+            android:name=".view.home.activity.LoadingActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.home.activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.AdvertisementActivity"
+            android:name=".view.home.activity.AdvertisementActivity"
             android:exported="false" />
         <activity
-            android:name=".view.RegistrationActivity"
+            android:name=".view.home.activity.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.home.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

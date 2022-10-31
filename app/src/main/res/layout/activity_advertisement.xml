@@ -10,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/avd_bgr"
-    tools:context=".view.AdvertisementActivity">
+    tools:context=".view.home.activity.AdvertisementActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/SlideVIewPaper"

@@ -71,10 +71,9 @@ class FlowerCartAdapter(var context: Context, var listFlowerCart: ArrayList<Flow
         }
 
         holder.btnRemoveFlower?.setOnClickListener {
-//            var userId = FirebaseAuth.getInstance().currentUser?.uid!!
+            var userId = FirebaseAuth.getInstance().currentUser?.uid!!
             var database =
-                FirebaseDatabase.getInstance().getReference("FlowerCart" + "/" + flower.id)
-//                    .child(userId)
+                FirebaseDatabase.getInstance().getReference("FlowerCart").child(userId).child(flower.id.toString())
             database.removeValue()
             Toast.makeText(mContext, "Cart updated", Toast.LENGTH_SHORT).show()
         }

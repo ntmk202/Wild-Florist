@@ -14,7 +14,7 @@
     android:background="@color/bgr_pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ForgotPassActivity">
+    tools:context=".view.home.activity.ForgotPassActivity">
 
     <LinearLayout
         android:id="@+id/lyt_start"

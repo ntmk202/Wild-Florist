@@ -4,4 +4,7 @@
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
+    <style name="Circular" parent="@android:style/TextAppearance">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

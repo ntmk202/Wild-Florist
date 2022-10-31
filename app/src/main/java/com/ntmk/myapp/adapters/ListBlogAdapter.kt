@@ -9,7 +9,7 @@ import android.widget.*
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ntmk.myapp.R
-import com.ntmk.myapp.WebBlogActivity
+import com.ntmk.myapp.view.home.activity.WebBlogActivity
 import com.ntmk.myapp.databinding.ZListBlogItemBinding
 import com.ntmk.myapp.model.Blog
 

@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bgr2"
-        tools:context=".view.LoginActivity">
+        tools:context=".view.home.activity.LoginActivity">
 
         <LinearLayout
             android:id="@+id/lyt_start"

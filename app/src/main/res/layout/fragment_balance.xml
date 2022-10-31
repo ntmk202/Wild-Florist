@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/nav_balance"
-    tools:context=".view.ui.BalanceFragment">
+    tools:context=".view.home.fragment.BalanceFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

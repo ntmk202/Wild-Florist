@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.ui.BlogFragment"
+        tools:context=".view.home.fragment.BlogFragment"
         android:background="@color/color_bgblog"
         android:orientation="vertical">
 
@@ -46,7 +46,7 @@
             android:paddingEnd="20dp"
             android:layout_marginTop="5dp"
             android:fontFamily="monospace"
-            android:text="Mới cập nhật"
+            android:text="New Blog"
             android:textColor="@color/text"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -90,7 +90,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
-                android:paddingBottom="150dp"
+                android:paddingBottom="50dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 tools:itemCount="1"
                 tools:listitem="@layout/z_list_blog_item" />
